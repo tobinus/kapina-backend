@@ -69,6 +69,13 @@ class ShowType(graphene.ObjectType):
     def resolve_posts(show, args, info):
         return show.posts.order_by('-created_at')
 
+    @staticmethod
+    def resolve_image(show, args, info):
+        if str(show.image).startswith('http'):
+            return show.image
+        else:
+            return show.image.url
+
 
 class EpisodeType(graphene.ObjectType):
     """
