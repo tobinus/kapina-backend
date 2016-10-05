@@ -71,10 +71,7 @@ class ShowType(graphene.ObjectType):
 
     @staticmethod
     def resolve_image(show, args, info):
-        if str(show.image).startswith('http'):
-            return show.image
-        else:
-            return show.image.url
+        return show.image.url
 
 
 class EpisodeType(graphene.ObjectType):
