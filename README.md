@@ -240,9 +240,57 @@ python manage.py collectstatic
 python manage.py loaddata data.json
 ```
 
+### Setup Gunicorn
+Copy the Gunicorn config to /webapps/revolt-backend/gunicorn_start:
+```
+#!/bin/bash
+
+NAME="revolt-backend"                               # Name of the application
+DJANGODIR=/webapps/revolt-backend                   # Django project directory
+SOCKFILE=/webapps/revolt-backend/run/gunicorn.sock  # we will communicate using this unix socket
+USER=revoltbackend                                  # the user to run as
+GROUP=webapps                                       # the group to run as
+NUM_WORKERS=3                                       # how many worker processes should Gunicorn spawn
+DJANGO_SETTINGS_MODULE=app.settings               # which settings file should Django use
+DJANGO_WSGI_MODULE=app.wsgi                       # WSGI module name
+
+echo "Starting $NAME as `whoami`"
+
+# Activate the virtual environment
+cd $DJANGODIR
+source venv/bin/activate
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+
+# Create the run directory if it doesn't exist
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+# Start your Django Unicorn
+# Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
+exec venv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+  --name $NAME \
+  --workers $NUM_WORKERS \
+#  --user=$USER --group=$GROUP \
+  --bind=unix:$SOCKFILE \
+  --log-level=debug \
+  --log-file=-
+```
+
+
 ### Setup Supervisor
+Copy the Supervisor config to /etc/supervisor/conf.d/revolt-backend.conf:
+```
+[program:revolt-backend]
+command =sh /webapps/revolt-backend/gunicorn_start
+user = revoltbackend
+stdout_logfile = /webapps/revolt-backend/logs/gunicorn_supervisor.log
+redirect_stderr = true
+environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8
+```
+Create log file and restart Supervisor:
 ```bash
-mkdir -p /webapps/revolt_backend/logs/
+mkdir -p /webapps/revolt-backend/logs/
 touch /webapps/revolt-backend/logs/gunicorn_supervisor.log
 supervisorctl reread
 ```
