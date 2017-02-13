@@ -131,9 +131,13 @@ Enable the config by creating a symlink in /etc/nginx/sites-enabled:
 sudo ln -s /etc/nginx/sites-available/radiorevolt.conf /etc/nginx/sites-enabled/radiorevolt.conf
 ```
 
-Enable the config by creating a symlink in /etc/nginx/sites-enabled:
-```bash
-sudo ln -s /etc/nginx/sites-available/radiorevolt.conf /etc/nginx/sites-enabled/radiorevolt.conf
+If the server is only listening to IPv6 addresses replace this line:
+```
+listen 80;
+```
+With this line:
+```
+listen [::]:80 default ipv6only=on;
 ```
 
 
