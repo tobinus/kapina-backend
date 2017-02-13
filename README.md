@@ -100,7 +100,9 @@ useradd --system --gid webapps --shell /bin/bash --home /webapps/revolt-backend 
 ### Virtualenvironment
 
 ```bash
-pip install virtualenv
+cd /webapps/revolt-backend/
+sudo apt-get install python3-pip
+pip3 install virtualenv
 virtualenv -p python3 venv
 source venv/bin/activate
 ```
