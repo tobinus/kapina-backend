@@ -241,7 +241,10 @@ DATABASES = {
     }
 }
 ```
-
+If the server is running IPv6, change the following as well:
+```python
+'HOST': '127.0.0.1',
+```
 ### Setup database and load data dump
 ```bash
 python manage.py migrate
