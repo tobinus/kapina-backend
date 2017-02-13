@@ -60,8 +60,7 @@ server {
 
   listen 80;
   # Type your domain name below
-  #server_name radiorevolt.no www.radiorevolt.no beta.radiorevolt.no;
-  server_name *
+  server_name radiorevolt.no www.radiorevolt.no beta.radiorevolt.no;
 
   root /var/www;
   index index.html;
@@ -131,6 +130,12 @@ Enable the config by creating a symlink in /etc/nginx/sites-enabled:
 ```bash
 sudo ln -s /etc/nginx/sites-available/radiorevolt.conf /etc/nginx/sites-enabled/radiorevolt.conf
 ```
+
+Enable the config by creating a symlink in /etc/nginx/sites-enabled:
+```bash
+sudo ln -s /etc/nginx/sites-available/radiorevolt.conf /etc/nginx/sites-enabled/radiorevolt.conf
+```
+
 
 ### Clone repo
 
@@ -275,6 +280,10 @@ exec venv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --bind=unix:$SOCKFILE \
   --log-level=debug \
   --log-file=-
+```
+Make the file exectuable:
+```bash
+chmod +x /webapps/revolt-backend/gunicorn_start
 ```
 
 
