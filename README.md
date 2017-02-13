@@ -54,9 +54,82 @@ python manage.py runserver
 apt-get install nginx
 ```
 
-Copy the nginx config:
+Copy the nginx config (Updated as of 12/02/2017) to /etc/nginx/sites-available/radiorevolt.conf:
 ```
-TODO
+server {
+
+  listen 80;
+  # Type your domain name below
+  #server_name radiorevolt.no www.radiorevolt.no beta.radiorevolt.no;
+  server_name *
+
+  root /var/www;
+  index index.html;
+    
+# Always serve index.html for any request
+  location / {
+    try_files $uri $uri/ /index.html;
+    allow all;
+  }
+  location /static/ {
+      alias   /var/www/static/;
+  }
+  
+  location /media/ {
+      alias   /var/www/media/;
+  }
+  location ~ /.well-known {
+        allow all;
+  }	
+##
+# If you want to use Node/Rails/etc. API server
+# on the same port (443) config Nginx as a reverse proxy.
+# For security reasons use a firewall like ufw in Ubuntu
+# and deny port 3000/tcp.
+##
+
+   location /staging/api {
+    proxy_pass http://localhost:9000;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+  }
+
+  location /graphql {
+    proxy_pass http://localhost:8000/graphql;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+  }
+
+  location /admin/ {
+    proxy_pass http://localhost:8000/admin/;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+  }
+
+  location /graphiql {
+    proxy_pass http://localhost:8000/graphiql;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+  }
+
+  location /grappelli {
+    proxy_pass http://localhost:8000/grappelli;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+  }
+
+  location /summernote/ {
+    proxy_pass http://localhost:8000/summernote/;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+  }
+}
+```
+Enable the config by creating a symlink in /etc/nginx/sites-enabled:
+```bash
+sudo ln -s /etc/nginx/sites-available/radiorevolt.conf /etc/nginx/sites-enabled/radiorevolt.conf
 ```
 
 ### Clone repo
@@ -95,6 +168,7 @@ exit
 ```bash
 groupadd --system webapps
 useradd --system --gid webapps --shell /bin/bash --home /webapps/revolt-backend revoltbackend
+chown -R revoltbackend: /webapps/revolt-backend
 ```
 
 ### Virtualenvironment
