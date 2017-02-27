@@ -304,6 +304,10 @@ stdout_logfile = /webapps/revolt-backend/logs/gunicorn_supervisor.log
 redirect_stderr = true
 environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8
 ```
+Enable Supervisor:
+```
+sudo systemctl enable supervisor.service
+```
 Create log file and restart Supervisor:
 ```bash
 mkdir -p /webapps/revolt-backend/logs/
