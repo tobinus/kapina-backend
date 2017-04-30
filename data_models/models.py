@@ -46,7 +46,7 @@ class Episode(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
 
-    on_demand_url = models.URLField(help_text="http://hemingway.radiorevolt.no/ondemandinfo/")
+    on_demand_url = models.URLField(help_text="https://ondemandinfo.radiorevolt.no/")
 
     def __unicode__(self):
         return self.title
