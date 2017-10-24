@@ -9,7 +9,7 @@ class PostAdmin(SummernoteModelAdmin):
 
 
 @admin.register(Show)
-class ShowAdmin(admin.ModelAdmin):
+class ShowAdmin(SummernoteModelAdmin):
     pass
 
 
