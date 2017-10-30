@@ -95,6 +95,13 @@ class EpisodeType(graphene.ObjectType):
     on_demand_url = graphene.String()
 
     @staticmethod
+    def resolve_title(episode, args, info):
+        if episode.use_title:
+            return episode.title
+        else:
+            return '{} {}'.format(episode.show.name, episode.created_at.strftime('%d.%m.%Y'))
+
+    @staticmethod
     def resolve_created_by(episode, args, info):
         return episode.created_by
 

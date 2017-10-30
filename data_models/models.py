@@ -37,13 +37,17 @@ class Show(models.Model):
 
 
 class Episode(models.Model):
-    title = models.CharField(max_length=64)
-    lead = models.CharField(max_length=140)
+    title = models.CharField('Tittel', max_length=64)
+    use_title = models.BooleanField(
+        'Bruk tittel',
+        default=False,
+        help_text='Vis tittelen på episoden. Om ikke tittel benyttes vises "Navn på show" + "Publiseringsdato"')
+    lead = models.CharField('Beskrivelse', max_length=140)
 
-    show = models.ForeignKey(Show, related_name='episodes')
+    show = models.ForeignKey(Show, related_name='episodes', verbose_name='Program')
 
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
-    created_by = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
+    created_by = models.ForeignKey(User, on_delete=models.PROTECT, null=True, verbose_name='Opprettet av')
     updated_at = models.DateTimeField(auto_now=True, editable=False)
 
     on_demand_url = models.URLField(help_text="https://ondemandinfo.radiorevolt.no/")
