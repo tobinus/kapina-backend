@@ -36,6 +36,7 @@ class Show(models.Model):
 
     categories = models.ManyToManyField(
         Category,
+        blank=True,
         verbose_name='Kategorier'
     )
 
@@ -90,6 +91,7 @@ class Episode(models.Model):
 
     categories = models.ManyToManyField(
         Category,
+        blank=True,
         verbose_name='Kategorier'
     )
 
@@ -135,6 +137,7 @@ class Post(models.Model):
 
     categories = models.ManyToManyField(
         Category,
+        blank=True,
         verbose_name='Kategorier'
     )
 
