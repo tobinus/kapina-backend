@@ -2,7 +2,18 @@ import graphene
 
 from django.contrib.auth.models import User
 
-from data_models.models import Post, Episode, Show
+from data_models.models import Post, Episode, Show, Category
+
+
+class CategoryType(graphene.ObjectType):
+    """
+    Category description
+    """
+
+    id = graphene.Int()
+    name = graphene.String()
+    text_color = graphene.String()
+    background_color = graphene.String()
 
 
 class PostType(graphene.ObjectType):
@@ -16,6 +27,7 @@ class PostType(graphene.ObjectType):
     image = graphene.String()
     lead = graphene.String()
     content = graphene.String()
+    categories = graphene.List('CategoryType')
     deleted = graphene.Boolean()
 
     show = graphene.Field('ShowType')
@@ -28,6 +40,10 @@ class PostType(graphene.ObjectType):
     @staticmethod
     def resolve_show(post, args, info):
         return post.show
+
+    @staticmethod
+    def resolve_categories(post, args, info):
+        return post.categories.all()
 
     @staticmethod
     def resolve_created_by(post, args, info):
@@ -45,6 +61,7 @@ class ShowType(graphene.ObjectType):
     image = graphene.String()
     lead = graphene.String()
     content = graphene.String()
+    categories = graphene.List('CategoryType')
 
     slug = graphene.String()
     archived = graphene.Boolean()
@@ -60,6 +77,10 @@ class ShowType(graphene.ObjectType):
     @staticmethod
     def resolve_created_by(show, args, info):
         return show.created_by
+
+    @staticmethod
+    def resolve_categories(show, args, info):
+        return show.categories.all()
 
     @staticmethod
     def resolve_episodes(show, args, info):
@@ -84,6 +105,7 @@ class EpisodeType(graphene.ObjectType):
     lead = graphene.String()
     digas_broadcast_id = graphene.Int()
     digas_show_id = graphene.Int()
+    categories = graphene.List('CategoryType')
 
     show = graphene.Field('ShowType')
 
@@ -99,11 +121,17 @@ class EpisodeType(graphene.ObjectType):
         if episode.use_title:
             return episode.title
         else:
-            return '{} {}'.format(episode.show.name, episode.created_at.strftime('%d.%m.%Y'))
+            return '{} {}'.format(
+                episode.show.name, episode.created_at.strftime('%d.%m.%Y')
+            )
 
     @staticmethod
     def resolve_created_by(episode, args, info):
         return episode.created_by
+
+    @staticmethod
+    def resolve_categories(episode, args, info):
+        return episode.categories.all()
 
     @staticmethod
     def resolve_show(episode, args, info):
@@ -136,6 +164,15 @@ class Query(graphene.ObjectType):
     Radio Revolt query description
     """
     name = 'Query'
+
+    category = graphene.Field(
+        CategoryType,
+        id=graphene.Int()
+    )
+
+    all_categories = graphene.List(
+        CategoryType
+    )
 
     show = graphene.Field(
         ShowType,
@@ -180,13 +217,21 @@ class Query(graphene.ObjectType):
     )
 
     @staticmethod
+    def resolve_category(root, args, info):
+        id = args.get('id')
+        return Category.objects.get(pk=id)
+
+    @staticmethod
+    def resolve_all_categories(root, args, info):
+        return Category.objects.all()
+
+    @staticmethod
     def resolve_show(root, args, info):
         id = args.get('id')
         slug = args.get('slug')
         if id:
             return Show.objects.get(pk=id)
         return Show.objects.filter(slug=slug)[0]
-
 
     @staticmethod
     def resolve_all_shows(root, args, info):
