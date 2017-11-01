@@ -1,4 +1,5 @@
 Django==1.10
+django-colorfield==0.1.14
 django-filebrowser==3.7.2
 django-graphiql==0.4.4
 django-grappelli==2.8.1
