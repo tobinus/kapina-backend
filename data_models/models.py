@@ -24,22 +24,31 @@ class Category(models.Model):
 
 
 class Show(models.Model):
-    name = models.CharField(max_length=64, unique=True)
+    class Meta:
+        verbose_name = "Program"
+        verbose_name_plural = "Programmer"
+
+    name = models.CharField('Navn', max_length=64, unique=True)
     slug = models.CharField(max_length=64, unique=True)
-    image = models.ImageField(upload_to='uploads/images')
-    lead = models.CharField(max_length=140)
-    content = models.TextField()
+    image = models.ImageField('Programlogo', upload_to='uploads/images')
+    lead = models.CharField('Kort beskrivelse', max_length=140)
+    content = models.TextField('Lang beskrivelse')
 
     categories = models.ManyToManyField(
         Category,
         verbose_name='Kategorier'
     )
 
-    archived = models.BooleanField(default=False)
+    archived = models.BooleanField('Arkivert', default=False)
 
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
-    created_by = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
+    created_by = models.ForeignKey(
+        User,
+        on_delete=models.PROTECT,
+        null=True,
+        verbose_name='Opprettet av'
+    )
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -61,6 +70,10 @@ class Show(models.Model):
 
 
 class Episode(models.Model):
+    class Meta:
+        verbose_name = "Episode"
+        verbose_name_plural = "Episoder"
+
     title = models.CharField('Tittel', max_length=64)
     use_title = models.BooleanField(
         'Bruk tittel',
@@ -101,27 +114,38 @@ class Episode(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=64)
-    slug = models.CharField(max_length=64, unique=True, editable=False)
-    image = models.ImageField(upload_to='uploads/images')
-    lead = models.CharField(max_length=140)
-    content = models.TextField()
-    deleted = models.BooleanField(default=False)
+    class Meta:
+        verbose_name = "Artikkel"
+        verbose_name_plural = "Artikler"
 
-    show = models.ForeignKey(Show, blank=True, null=True, related_name='posts')
+    title = models.CharField('Tittel', max_length=64)
+    slug = models.CharField(max_length=64, unique=True, editable=False)
+    image = models.ImageField('Bilde', upload_to='uploads/images')
+    lead = models.CharField('Ingress', max_length=140)
+    content = models.TextField('Brødtekst')
+    deleted = models.BooleanField('Slettet', default=False)
+
+    show = models.ForeignKey(
+        Show,
+        blank=True,
+        null=True,
+        related_name='posts',
+        verbose_name='Program'
+    )
 
     categories = models.ManyToManyField(
         Category,
         verbose_name='Kategorier'
     )
 
-    publish_at = models.DateTimeField(default=datetime.now)
+    publish_at = models.DateTimeField('Publisert', default=datetime.now)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
     created_by = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
-        related_name='publications'
+        related_name='publications',
+        verbose_name='Opprettet av'
     )
 
     def save(self, *args, **kwargs):
