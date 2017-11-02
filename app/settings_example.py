@@ -135,7 +135,13 @@ SUMMERNOTE_CONFIG = {
     'toolbar': [
         ['style', ['bold', 'italic', 'underline', 'clear']],
         ['list', ['ul', 'ol']],
-        ['media', ['link', 'picture', 'video']],
+        ['media', ['link', 'picture', 'videoAttributes']],
         ['tools', ['redo', 'undo', 'fullscreen']]
     ],
+    'js': (
+        '/static/summernote-video-attributes.js',
+    ),
+    'css': (
+        '/static/summernote-video-attributes.css',
+    )
 }
