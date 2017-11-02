@@ -3,6 +3,7 @@ mediafiles/
 staticfiles/
 media/
 static/
+!*/static/
 venv/
 __pycache__/
 
