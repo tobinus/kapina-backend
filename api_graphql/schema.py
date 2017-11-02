@@ -116,6 +116,7 @@ class EpisodeType(graphene.ObjectType):
 
     created_at = graphene.String()
     updated_at = graphene.String()
+    publish_at = graphene.String()
     created_by = graphene.Field('UserType')
 
     podcast_url = graphene.String()
@@ -126,9 +127,14 @@ class EpisodeType(graphene.ObjectType):
         if episode.use_title:
             return episode.title
         else:
+<<<<<<< d92a4ed0f201625688bf748b84f0e4cf462cd446
             return '{} {}'.format(
                 episode.show.name, episode.created_at.strftime('%d.%m.%Y')
             )
+=======
+            
+            return '{} {}'.format(episode.show.name, episode.publish_at.strftime('%d.%m.%Y'))
+>>>>>>> Add publishAt field for episode.
 
     @staticmethod
     def resolve_created_by(episode, args, info):

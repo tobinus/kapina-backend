@@ -96,6 +96,7 @@ class Episode(models.Model):
         verbose_name='Kategorier'
     )
 
+    publish_at = models.DateTimeField(default=datetime.now)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     created_by = models.ForeignKey(
         User,
