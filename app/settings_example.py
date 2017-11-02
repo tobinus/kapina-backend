@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'grappelli',
     'filebrowser',
     'django_summernote',
+    'colorfield',
 ]
 
 MIDDLEWARE = [
