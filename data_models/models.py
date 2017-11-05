@@ -132,7 +132,8 @@ class Post(models.Model):
     episodes = models.ManyToManyField(
         Episode,
         blank=True,
-        verbose_name='Episoder'
+        verbose_name='Episoder',
+        help_text='Legger til episoder i bunnen av artikkelen. Episodelisten blir filtrert på valgt program etter at artikkelen er opprettet.'
     )
 
     show = models.ForeignKey(
