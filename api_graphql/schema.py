@@ -29,6 +29,7 @@ class PostType(graphene.ObjectType):
     content = graphene.String()
     categories = graphene.List('CategoryType')
     deleted = graphene.Boolean()
+    episodes = graphene.List('EpisodeType')
 
     show = graphene.Field('ShowType')
 
@@ -44,6 +45,10 @@ class PostType(graphene.ObjectType):
     @staticmethod
     def resolve_categories(post, args, info):
         return post.categories.all()
+
+    @staticmethod
+    def resolve_episodes(post, args, info):
+        return post.episodes.all()
 
     @staticmethod
     def resolve_created_by(post, args, info):
