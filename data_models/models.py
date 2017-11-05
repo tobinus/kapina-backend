@@ -74,6 +74,7 @@ class Episode(models.Model):
     class Meta:
         verbose_name = "Episode"
         verbose_name_plural = "Episoder"
+        ordering = ['-created_at']
 
     title = models.CharField('Tittel', max_length=64)
     use_title = models.BooleanField(
@@ -119,6 +120,7 @@ class Post(models.Model):
     class Meta:
         verbose_name = "Artikkel"
         verbose_name_plural = "Artikler"
+        ordering = ['-publish_at']
 
     title = models.CharField('Tittel', max_length=64)
     slug = models.CharField(max_length=64, unique=True, editable=False)
@@ -126,6 +128,13 @@ class Post(models.Model):
     lead = models.CharField('Ingress', max_length=140)
     content = models.TextField('Brødtekst')
     deleted = models.BooleanField('Slettet', default=False)
+
+    episodes = models.ManyToManyField(
+        Episode,
+        blank=True,
+        verbose_name='Episoder',
+        help_text='Legger til episoder i bunnen av artikkelen. Episodelisten blir filtrert på valgt program etter at artikkelen er opprettet.'
+    )
 
     show = models.ForeignKey(
         Show,
