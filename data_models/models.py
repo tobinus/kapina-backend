@@ -127,6 +127,12 @@ class Post(models.Model):
     content = models.TextField('Brødtekst')
     deleted = models.BooleanField('Slettet', default=False)
 
+    episodes = models.ManyToManyField(
+        Episode,
+        blank=True,
+        verbose_name='Episoder'
+    )
+
     show = models.ForeignKey(
         Show,
         blank=True,
