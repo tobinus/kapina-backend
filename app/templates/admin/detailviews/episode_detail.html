@@ -1,0 +1,20 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block breadcrumbs %}
+<a href="{% url 'admin_index' %}"><span>Hovedside</span></a> /
+<a href="{% url 'show_detail' object.show.slug %}"><span>{{ object.show }}</span></a> /
+<a href="{% url 'episode_detail' object.id %}"><span>{{ object }}</span></a>
+{% endblock %}
+
+{% block main-content %}
+<div>
+    <form>
+        <h3>Episode - {{ object }}</h3>
+        {% include 'forms/text.html' with name='title' value=object.title %}
+        {% include 'forms/textarea.html' with name='lead' value=object.lead %}
+        {% include 'forms/text.html' with name='On demand url' value=object.on_demand_url %}
+        {% include 'forms/select.html' with name='Show' options=shows %}
+        {% include 'forms/submit.html' %}
+    </form>
+</div>
+{% endblock %}

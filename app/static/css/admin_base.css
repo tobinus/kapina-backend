@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    display: flex;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+
+h3 {
+    text-align: center;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.sidebar {
+    color: whitesmoke;
+    flex-grow: 1;
+    background-color: #333333;
+    min-width: 200px;
+}
+
+.sidebar h3 {
+    text-align: center;
+}
+
+.sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    color: whitesmoke;
+    padding: 12.5px;
+    cursor: pointer;
+}
+
+.sidebar-menu li:hover {
+    background-color: #535353;
+}
+
+.sidebar-menu .selected {
+    border-left: 4px solid #00bcd4;
+    background-color: #535353;
+}
+
+.main-content {
+    flex-grow: 11;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation-bar {
+    color: whitesmoke;
+    padding: 12.5px;
+    background-color: #1C92A9;
+}
+
+.navigation-bar a {
+    text-decoration: none;
+}
+
+.navigation-bar span {
+    color: whitesmoke;
+}
+
+.navigation-bar span:hover {
+    text-decoration: underline;
+}
+
+.content-listing {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.model-container {
+    flex-grow: 1;
+}
+
+.model-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.model-container li {
+    cursor: pointer;
+    padding: 12.5px;
+    border: 1px solid #eeeeee;
+}
+
+.model-container li:hover {
+    background-color: whitesmoke;
+}
+
+i {
+    padding: 5px;
+}
+
+.show-detail {
+    display: flex;
+}
+
+.show-detail form {
+    flex-grow: 1;
+}
+
+.episode-list {
+    flex-grow: 1;
+    height: 100%;
+    overflow: scroll;
+}
+
+.episode-list ul {
+    list-style: none;
+}
+
+.episode-list li {
+    padding: 12.5px;
+    cursor: pointer;
+    border: 1px solid #eeeeee;
+}
+
+.episode-list li:hover {
+    background-color: whitesmoke;
+}
+
+.show-container {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    padding-left: 0;
+}
+
+.card img {
+    max-width: 200px;
+    max-height: auto;
+    margin: auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 1rem;
+    padding: 0.5rem;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}

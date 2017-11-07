@@ -1,0 +1,10 @@
+<div class="input-select-wrapper form-wrapper">
+    <label>{{ name }}</label>
+    <select size="1">
+        {% for option in options %}
+        <option value="{{ option.value }}" >
+            {{ option.name }}
+        </option>
+        {% endfor %}
+    </select>
+</div>

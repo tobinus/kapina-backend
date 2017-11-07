@@ -1,0 +1,15 @@
+{% extends 'admin/admin_base.html' %}
+{% block main-content %}
+<div>
+    <ul class="show-container">
+        {% for show in shows %}
+        <a href="{% url 'show_detail' show.slug %}">
+            <div class="card">
+                <h3>{{ show.name }}</h3>
+                <img src="{{ show.image }}">
+            </div>
+        </a>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

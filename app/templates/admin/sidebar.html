@@ -1,0 +1,10 @@
+{% load active_menu %}
+<div class="sidebar">
+    <h3>Meny</h3>
+    <ul class="sidebar-menu">
+        <a href="{% url 'admin_index' %}" ><li class="{% active 'admin_index' %}" >Hovedside</li></a>
+        {% for menu in menus %}
+        <a href="{% url menu.url_name %}" ><li class="{% active menu.name %}" >{{ menu.text }}</li></a>
+        {% endfor %}
+    </ul>
+</div>

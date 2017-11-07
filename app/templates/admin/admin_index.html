@@ -1,0 +1,46 @@
+{% extends 'admin/admin_base.html' %}
+{% block main-content %}
+<div class="content-listing">
+    <div class="model-container">
+        <h3>Posts</h3>
+        <ul>
+            <a href="{% url 'post_detail' '0' %}">
+                <li>
+                    <i class="fa fa-plus" aria-hidden="true"></i><span>Opprett ny post</span>
+                </li>
+            </a>
+            {% for post in latest_posts %}
+            <a href="{% url 'post_detail' post.slug %}" >
+                <li>{{ post.title }}</li>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="model-container">
+        <h3>Shows</h3>
+        <ul>
+            <a href="{% url 'show_detail' '0' %}" >
+                <li><i class="fa fa-plus" aria-hidden="true"></i>Opprett nytt show</li>
+            </a>
+            {% for show in shows %}
+            <a href="{% url 'show_detail' show.slug %}" >
+                <li>{{ show.name }}</li>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="model-container">
+        <h3>Episodes</h3>
+        <ul>
+            <a href="{% url 'episode_detail' '0' %}">
+                <li><i class="fa fa-plus" aria-hidden="true"></i>Opprett ny episode</li>
+            </a>
+            {% for episode in episodes %}
+            <a href="{% url 'episode_detail' episode.id %}" >
+                <li>{{ episode.title }}</li>
+            </a>
+            {% endfor %}
+        </ul>
+</div>
+</div>
+{% endblock %}

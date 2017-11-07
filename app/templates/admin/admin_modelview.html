@@ -1,0 +1,33 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block navigation-bar %}
+<a href="{% url 'admin-main' %}"><span>Hovedside</span></a>
+<a href="{% url 'admin-main' %}"><span>/ {{ model }}</span></a>
+{% endblock %}
+
+{% block main-content %}
+<div class="form-container">
+    <span>Model : {{ model }} -> id: {{ id }}</span>
+    {% if id %}
+        <h3>Opprett ny {{ model }}</h3>
+    {% else %}
+        <h3>Tittel på model her</h3>
+    {% endif %}
+    <div>
+        <label>Name</label>
+        <input type="text" />
+    </div>
+    <div>
+        <label>Other</label>
+        <input type="text" />
+    </div>
+    <div>
+        <label>Bilde</label>
+        <input type="file" />
+    </div>
+    <div>
+        <label>All text in editor here</label>
+        <input type="text" />
+    </div>
+</div>
+{% endblock %}
