@@ -254,7 +254,11 @@ class Query(graphene.ObjectType):
     @staticmethod
     def resolve_episode(root, args, info):
         id = args.get('id')
-        return Episode.objects.get(pk=id)
+        episode = Episode.objects.get(pk=id)
+        if episode.publish_at >= timezone.now():
+            raise Episode.DoesNotExist('Episode matching query does not exist.')
+        else:
+            return episode
 
     @staticmethod
     def resolve_all_episodes(root, args, info):
