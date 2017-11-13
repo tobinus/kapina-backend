@@ -130,14 +130,9 @@ class EpisodeType(graphene.ObjectType):
         if episode.use_title:
             return episode.title
         else:
-<<<<<<< d92a4ed0f201625688bf748b84f0e4cf462cd446
             return '{} {}'.format(
                 episode.show.name, episode.created_at.strftime('%d.%m.%Y')
             )
-=======
-            
-            return '{} {}'.format(episode.show.name, episode.publish_at.strftime('%d.%m.%Y'))
->>>>>>> Add publishAt field for episode.
 
     @staticmethod
     def resolve_created_by(episode, args, info):
@@ -256,7 +251,9 @@ class Query(graphene.ObjectType):
         id = args.get('id')
         episode = Episode.objects.get(pk=id)
         if episode.publish_at >= timezone.now():
-            raise Episode.DoesNotExist('Episode matching query does not exist.')
+            raise Episode.DoesNotExist(
+                'Episode matching query does not exist.'
+                )
         else:
             return episode
 
