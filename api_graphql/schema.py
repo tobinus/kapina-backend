@@ -1,6 +1,7 @@
 import graphene
 
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 from data_models.models import Post, Episode, Show, Category
 
@@ -89,7 +90,9 @@ class ShowType(graphene.ObjectType):
 
     @staticmethod
     def resolve_episodes(show, args, info):
-        return show.episodes.order_by('-created_at')
+        return show.episodes \
+            .order_by('-publish_at') \
+            .filter(publish_at__lte=timezone.now())
 
     @staticmethod
     def resolve_posts(show, args, info):
@@ -116,6 +119,7 @@ class EpisodeType(graphene.ObjectType):
 
     created_at = graphene.String()
     updated_at = graphene.String()
+    publish_at = graphene.String()
     created_by = graphene.Field('UserType')
 
     podcast_url = graphene.String()
@@ -245,11 +249,19 @@ class Query(graphene.ObjectType):
     @staticmethod
     def resolve_episode(root, args, info):
         id = args.get('id')
-        return Episode.objects.get(pk=id)
+        episode = Episode.objects.get(pk=id)
+        if episode.publish_at >= timezone.now():
+            raise Episode.DoesNotExist(
+                'Episode matching query does not exist.'
+                )
+        else:
+            return episode
 
     @staticmethod
     def resolve_all_episodes(root, args, info):
-        return Episode.objects.order_by('-created_at')
+        return Episode.objects \
+            .order_by('-publish_at') \
+            .filter(publish_at__lte=timezone.now())
 
     @staticmethod
     def resolve_post(root, args, info):
