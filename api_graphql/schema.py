@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 from data_models.models import Post, Episode, Show, Category
+from data_models.thumbnail import Thumbnail
 
 
 class CategoryType(graphene.ObjectType):
@@ -26,6 +27,7 @@ class PostType(graphene.ObjectType):
     title = graphene.String()
     slug = graphene.String()
     image = graphene.String()
+    thumbnail = graphene.Field('ThumbnailType')
     lead = graphene.String()
     content = graphene.String()
     categories = graphene.List('CategoryType')
@@ -54,6 +56,10 @@ class PostType(graphene.ObjectType):
     @staticmethod
     def resolve_created_by(post, args, info):
         return post.created_by
+
+    @staticmethod
+    def resolve_thumbnail(post, args, info):
+        return Thumbnail(post.image)
 
 
 class ShowType(graphene.ObjectType):
@@ -166,7 +172,16 @@ class UserType(graphene.ObjectType):
         return user.get_full_name()
 
 
-# Query
+class ThumbnailType(graphene.ObjectType):
+    """
+    Thumbnail
+    """
+
+    large = graphene.String()
+    medium_large = graphene.String()
+    medium = graphene.String()
+    thumbnail = graphene.String()
+
 
 class Query(graphene.ObjectType):
     """
@@ -224,6 +239,8 @@ class Query(graphene.ObjectType):
     all_users = graphene.List(
         UserType
     )
+
+    thumbnail = graphene.Field(ThumbnailType)
 
     @staticmethod
     def resolve_category(root, args, info):
