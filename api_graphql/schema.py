@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 from data_models.models import Post, Episode, Show, Category
-from data_models.thumbnail import Thumbnail
+from data_models.crop import CropImages
 
 
 class CategoryType(graphene.ObjectType):
@@ -27,7 +27,7 @@ class PostType(graphene.ObjectType):
     title = graphene.String()
     slug = graphene.String()
     image = graphene.String()
-    thumbnail = graphene.Field('ThumbnailType')
+    cropped_images = graphene.Field('CroppedImagesType')
     lead = graphene.String()
     content = graphene.String()
     categories = graphene.List('CategoryType')
@@ -58,8 +58,8 @@ class PostType(graphene.ObjectType):
         return post.created_by
 
     @staticmethod
-    def resolve_thumbnail(post, args, info):
-        return Thumbnail(post.image, post.cropping)
+    def resolve_cropped_images(post, args, info):
+        return CropImages(post.image, post.cropping)
 
 
 class ShowType(graphene.ObjectType):
@@ -172,14 +172,14 @@ class UserType(graphene.ObjectType):
         return user.get_full_name()
 
 
-class ThumbnailType(graphene.ObjectType):
+class CroppedImagesType(graphene.ObjectType):
     """
-    Thumbnail
+    Cropped versions of an image
     """
 
     large = graphene.String()
-    medium_large = graphene.String()
     medium = graphene.String()
+    small = graphene.String()
     thumbnail = graphene.String()
 
 
@@ -240,7 +240,7 @@ class Query(graphene.ObjectType):
         UserType
     )
 
-    thumbnail = graphene.Field(ThumbnailType)
+    cropped_images = graphene.Field(CroppedImagesType)
 
     @staticmethod
     def resolve_category(root, args, info):

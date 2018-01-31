@@ -1,7 +1,7 @@
 from sorl.thumbnail import get_thumbnail
 
 
-class Thumbnail:
+class CropImages:
     def __init__(self, image, cropping):
         self.image = image
         if cropping:
