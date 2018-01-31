@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'filebrowser',
     'django_summernote',
     'colorfield',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [

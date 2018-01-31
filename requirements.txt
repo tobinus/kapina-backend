@@ -12,6 +12,7 @@ iso8601==0.1.11
 Pillow==3.3.0
 promise==0.4.2
 singledispatch==3.4.0.3
+sorl-thumbnail==12.4.1
 six==1.10.0
 dj-database-url==0.4.2
 python-decouple==3.1

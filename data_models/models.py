@@ -5,6 +5,7 @@ from django.db import IntegrityError
 from datetime import datetime
 from django.utils.text import slugify
 from colorfield.fields import ColorField
+from sorl.thumbnail import ImageField
 
 
 class Category(models.Model):
@@ -125,7 +126,7 @@ class Post(models.Model):
 
     title = models.CharField('Tittel', max_length=64)
     slug = models.CharField(max_length=64, unique=True, editable=False)
-    image = models.ImageField('Bilde', upload_to='uploads/images')
+    image = ImageField('Bilde', upload_to='uploads/images')
     lead = models.CharField('Ingress', max_length=140)
     content = models.TextField('Brødtekst')
     deleted = models.BooleanField('Slettet', default=False)

@@ -1,10 +1,11 @@
 from django.contrib import admin
 from .models import Post, Category, Episode, Show
 from django_summernote.admin import SummernoteModelAdmin
+from sorl.thumbnail.admin import AdminImageMixin
 
 
 @admin.register(Post)
-class PostAdmin(SummernoteModelAdmin):
+class PostAdmin(AdminImageMixin, SummernoteModelAdmin):
     def get_form(self, request, obj, **kwargs):
         form = super().get_form(request, obj, **kwargs)
         if obj and obj.show:
