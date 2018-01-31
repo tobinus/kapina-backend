@@ -59,7 +59,7 @@ class PostType(graphene.ObjectType):
 
     @staticmethod
     def resolve_thumbnail(post, args, info):
-        return Thumbnail(post.image)
+        return Thumbnail(post.image, post.cropping)
 
 
 class ShowType(graphene.ObjectType):

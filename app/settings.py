@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'colorfield',
     'sorl.thumbnail',
+    'sorl_cropping',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +150,5 @@ SUMMERNOTE_CONFIG = {
         '/static/summernote-video-attributes.css',
     )
 }
+
+THUMBNAIL_ENGINE = 'sorl_cropping.engine.CropEngine'
