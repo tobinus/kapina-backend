@@ -1,6 +1,21 @@
 # revolt-backend
 Backend for radiorevolt.no
 
+## Environment settings
+
+Settings are read from environment variables.
+By default settings are configured for development and should just work, but some changes are required in production. 
+
+|Name|Default|Description|
+|:---|:------|:----------|
+|REVOLT_DEBUG|True|Enable Django debug. Set to false in production|
+|REVOLT_ALLOWED_HOSTS|(Empty)|Hosts allowed to access webserver. e.g. 'radiorevolt.no'|
+|DATABASE_URL|(BASE_DIR)/db.sqlite3|[See dj-database-url](https://github.com/kennethreitz/dj-database-url#url-schema)
+|REVOLT_STATIC_ROOT|(BASE_DIR)/staticfiles|Folder where static files are located|
+|REVOLT_MEDIA_ROOT|(BASE_DIR)/mediafiles|Files where uploaded media is located|
+|REVOLT_SECRET_KEY|replace_this_secret_key|[See Django SECRET_KEY](https://docs.djangoproject.com/en/2.0/ref/settings/#std:setting-SECRET_KEY). **It is important that this is changed in production.**
+
+
 ## Setup - Development
 
 ### Virtualenv
@@ -21,18 +36,7 @@ pip install psycopg2
 
 ### Change settings
 
-```bash
-cp app/settings_example.py app/settings.py
-```
-Change the `app/settings.py` file: (This will probably be changed later)
-
-```python
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-```
+The default settings provided should work fine for development, but if any changes are needed a tool like [direnv](https://direnv.net/) is recommended for handling environment variables. 
 
 ### Setup database and load data dump
 ```bash
@@ -208,43 +212,20 @@ sudo cp chimera_import_script/data.json /webapps/revolt-backend/
 
 
 ### Change settings
-```bash
-cp app/settings_example.py app/settings.py
+
+In production environment variables can be added to the supervisor/systemd service. See settings table at the top of the readme for full list.
+
+Recommended changes:
+
+```
+REVOLT_DEBUG=false
+REVOLT_ALLOWED_HOSTS="radiorevolt.no"
+DATABASE_URL=postgres://revolt-backend:(password_here)@localhost/radiorevolt
+REVOLT_STATIC_ROOT=/var/www/static/
+REVOLT_MEDIA_ROOT=/var/www/media/
+REVOLT_SECRET_KEY=(generate this with something like 'openssl rand -base64 32')
 ```
 
-Change the URLs in `app/settings.py` file:
-
-```python
-STATIC_URL = '/static/'
-STATIC_ROOT = '/var/www/static/'
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = '/var/www/media/'
-```
-
-Change the timezone:
-
-```python
-TIME_ZONE = 'CET'
-```
-And the database:
-
-```python
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'radiorevolt',
-        'USER': 'revolt-backend',
-        'PASSWORD': '********',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-```
-If the server is running IPv6, change the following as well:
-```python
-'HOST': '127.0.0.1',
-```
 ### Setup database and load data dump
 ```bash
 python manage.py migrate
@@ -304,6 +285,9 @@ stdout_logfile = /webapps/revolt-backend/logs/gunicorn_supervisor.log
 redirect_stderr = true
 environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8
 ```
+
+Add environment settings to the environment list.
+
 Enable Supervisor:
 ```
 sudo systemctl enable supervisor.service
