@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+from decouple import config
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,12 +22,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!y8w@m6=gi64^wmn(nuogv8^#&4w5bh6erolr^b0%^&_5*1b+w'
+SECRET_KEY = config('REVOLT_SECRET_KEY', default='replace_this_secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('REVOLT_DEBUG', cast=bool, default=True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config(
+    'REVOLT_ALLOWED_HOSTS',
+    # Support "host1, host2" etc
+    cast=lambda v: [s.strip() for s in v.split(',')], default=''
+)
 
 
 # Application definition
@@ -83,12 +89,9 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    # Set this using the environment variable "DATABASE_URL"
+    'default': dj_database_url.config(default="sqlite:///%s/db.sqlite3" % BASE_DIR),
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -111,9 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'nb'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'CET'
 
 USE_I18N = True
 
@@ -126,10 +129,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/Users/boyebn/Projects/GitHub/revolt-backend/staticfiles'
+STATIC_ROOT = config("REVOLT_STATIC_ROOT", default=os.path.join(BASE_DIR, 'staticfiles'))
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/Users/boyebn/Projects/GitHub/revolt-backend/mediafiles'
+MEDIA_ROOT = config("REVOLT_MEDIA_ROOT", default=os.path.join(BASE_DIR, 'mediafiles'))
 
 SUMMERNOTE_CONFIG = {
     'toolbar': [
