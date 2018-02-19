@@ -6,6 +6,9 @@ from sorl_cropping import ImageCroppingMixin
 
 @admin.register(Post)
 class PostAdmin(ImageCroppingMixin, SummernoteModelAdmin):
+    list_display = ('title', 'show', 'publish_at', 'deleted')
+    list_filter = ('deleted', 'publish_at', 'show')
+
     def get_form(self, request, obj, **kwargs):
         form = super().get_form(request, obj, **kwargs)
         if obj and obj.show:
@@ -21,9 +24,12 @@ class CategoryAdmin(SummernoteModelAdmin):
 
 @admin.register(Show)
 class ShowAdmin(SummernoteModelAdmin):
-    pass
+    list_display = ('name', 'archived')
+    list_filter = ('archived', )
+    ordering = ('archived', 'name')
 
 
 @admin.register(Episode)
 class EpisodeAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'show', 'publish_at')
+    list_filter = ('show', )
