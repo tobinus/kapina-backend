@@ -4,6 +4,30 @@ from django_summernote.admin import SummernoteModelAdmin
 from sorl_cropping import ImageCroppingMixin
 
 
+class ShowFilter(admin.SimpleListFilter):
+    def lookups(self, request, model_admin):
+        shows = Show.objects.filter(archived=self.archived)
+        return [(show.id, str(show)) for show in shows]
+
+    def queryset(self, request, queryset):
+        if self.value():
+            return queryset.filter(show=self.value())
+        else:
+            return queryset
+
+
+class ActiveShowFilter(ShowFilter):
+    title = 'aktive programmer'
+    parameter_name = 'show'
+    archived = False
+
+
+class ArchivedShowFilter(ShowFilter):
+    title = 'arkiverte programmer'
+    parameter_name = 'show'
+    archived = True
+
+
 @admin.register(Post)
 class PostAdmin(ImageCroppingMixin, SummernoteModelAdmin):
     list_display = ('title', 'show', 'publish_at', 'deleted')
@@ -32,4 +56,4 @@ class ShowAdmin(SummernoteModelAdmin):
 @admin.register(Episode)
 class EpisodeAdmin(admin.ModelAdmin):
     list_display = ('title', 'show', 'publish_at')
-    list_filter = ('show', )
+    list_filter = (ActiveShowFilter, ArchivedShowFilter)
