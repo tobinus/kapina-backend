@@ -32,6 +32,7 @@ class ArchivedShowFilter(ShowFilter):
 class PostAdmin(ImageCroppingMixin, SummernoteModelAdmin):
     list_display = ('title', 'show', 'publish_at', 'deleted')
     list_filter = ('deleted', 'publish_at', 'show')
+    search_fields = ('title', 'show__name')
 
     def get_form(self, request, obj, **kwargs):
         form = super().get_form(request, obj, **kwargs)
@@ -51,9 +52,11 @@ class ShowAdmin(SummernoteModelAdmin):
     list_display = ('name', 'archived')
     list_filter = ('archived', )
     ordering = ('archived', 'name')
+    search_fields = ('name',)
 
 
 @admin.register(Episode)
 class EpisodeAdmin(admin.ModelAdmin):
     list_display = ('title', 'show', 'publish_at')
     list_filter = (ActiveShowFilter, ArchivedShowFilter)
+    search_fields = ('title', 'show__name')
