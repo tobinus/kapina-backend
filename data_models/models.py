@@ -70,6 +70,9 @@ class Show(models.Model):
     def __str__(self):
         return str(self.__unicode__())
 
+    def get_absolute_url(self):
+        return '/programmer/' + self.slug
+
 
 class Episode(models.Model):
     class Meta:
@@ -116,6 +119,10 @@ class Episode(models.Model):
 
     def __str__(self):
         return str(self.__unicode__())
+
+    def get_absolute_url(self):
+        # TODO: Update with episode link when we add support for this
+        return '/programmer/' + self.show.slug
 
 
 class Post(models.Model):
@@ -183,3 +190,6 @@ class Post(models.Model):
 
     def __str__(self):
         return str(self.__unicode__())
+
+    def get_absolute_url(self):
+        return '/post/' + self.slug
