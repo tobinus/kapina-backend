@@ -18,16 +18,16 @@ class CropImages:
 
     @property
     def large(self):
-        return self.generate_crop('1024x576')
+        return self.generate_crop('1024x512')
 
     @property
     def medium(self):
-        return self.generate_crop('768x432')
+        return self.generate_crop('768x384')
 
     @property
     def small(self):
-        return self.generate_crop('300x168')
+        return self.generate_crop('300x150')
 
     @property
     def thumbnail(self):
-        return self.generate_crop('150x84')
+        return self.generate_crop('150x75')
