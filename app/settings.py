@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 from decouple import config
 import dj_database_url
+import raven
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     'colorfield',
     'sorl.thumbnail',
     'sorl_cropping',
+    'raven.contrib.django.raven_compat',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +154,11 @@ SUMMERNOTE_CONFIG = {
 }
 
 THUMBNAIL_ENGINE = 'sorl_cropping.engine.CropEngine'
+
+raven_dsn = config('REVOLT_RAVEN_DSN', default='')
+if raven_dsn:
+    RAVEN_CONFIG = {
+        'dsn': raven_dsn,
+        # Use git to determine release
+        'release': raven.fetch_git_sha(BASE_DIR),
+    }
