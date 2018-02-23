@@ -159,3 +159,5 @@ snapshots['test_all_shows 1'] = {
         ]
     }
 }
+
+snapshots['test_url_all_shows 1'] = b'{"data":{"allShows":[{"id":1},{"id":2}]}}'

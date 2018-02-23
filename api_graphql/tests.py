@@ -142,3 +142,13 @@ def test_all_shows(snapshot):
     }''')
 
     snapshot.assert_match(executed)
+
+
+@pytest.mark.django_db
+def test_url_all_shows(client, snapshot):
+    response = client.get(
+        '/graphql?query=query%20{%20allShows%20{%20id%20}%20}'
+    )
+
+    assert response.status_code == 200
+    snapshot.assert_match(response.content)
