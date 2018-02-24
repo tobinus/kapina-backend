@@ -8,7 +8,7 @@ before_script:
 script:
   - py.test --cov-report=xml
 after_script:
-  - ./cc-test-reporter after-build --exit-code $EXIT_CODE
+  - ./cc-test-reporter after-build
 env:
   global:
     - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
