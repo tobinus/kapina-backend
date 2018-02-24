@@ -118,7 +118,7 @@ class Post(models.Model):
     image = models.ImageField('Bilde', upload_to='uploads/images')
     cropping = ImageRatioField(
         'image',
-        '1024x567',
+        '1024x512',
         size_warning=True,
         verbose_name='Bildeutsnitt',
         help_text='Velg bildeutsnitt')
