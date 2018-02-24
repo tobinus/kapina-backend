@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     'data_models',
 
     'graphene_django',
-    'grappelli',
-    'filebrowser',
     'django_summernote',
     'colorfield',
     'sorl.thumbnail',

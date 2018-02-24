@@ -3,16 +3,14 @@ Django==1.10.8
 
 # Django admin packages
 django-colorfield==0.1.14
-django-filebrowser==3.7.2
-django-grappelli==2.8.1
-django-summernote==0.8.5
+django-summernote==0.8.8.6
 
 # GraphQL
 graphene==2.0.1
 graphene-django==2.0.0
 
 # Thumbnails
-Pillow==3.3.0
+Pillow==5.0.0
 sorl-thumbnail==12.4.1
 git+git://github.com/ilya-chistyakov/django-sorl-cropping.git#egg=django-sorl-cropping==0.1.0
 
