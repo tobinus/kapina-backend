@@ -47,7 +47,6 @@ INSTALLED_APPS = [
 
     'data_models',
 
-    'django_graphiql',
     'graphene_django',
     'grappelli',
     'filebrowser',
@@ -162,3 +161,7 @@ if raven_dsn:
         # Use git to determine release
         'release': raven.fetch_git_sha(BASE_DIR),
     }
+
+GRAPHENE = {
+    'SCHEMA': 'api_graphql.schema.schema'
+}
