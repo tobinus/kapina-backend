@@ -1,10 +1,10 @@
-from django.db import models
-from django.contrib.auth.models import User
-from django.utils.crypto import get_random_string
-from django.db import IntegrityError
 from datetime import datetime
-from django.utils.text import slugify
+
 from colorfield.fields import ColorField
+from django.contrib.auth.models import User
+from django.db import IntegrityError, models
+from django.utils.crypto import get_random_string
+from django.utils.text import slugify
 from sorl_cropping import ImageRatioField
 
 

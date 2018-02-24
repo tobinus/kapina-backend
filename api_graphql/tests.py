@@ -1,7 +1,8 @@
+import pytest
 from django.core.management import call_command
 from graphene.test import Client
+
 from api_graphql.schema import schema
-import pytest
 
 
 @pytest.fixture(scope='session')

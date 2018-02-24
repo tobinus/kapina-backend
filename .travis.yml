@@ -8,6 +8,7 @@ before_script:
 script:
   - flake8
   - yapf -pdr api_graphql app data_models -e '**/migrations' -e '**/snapshots'
+  - isort -c -rc api_graphql app data_models
   - py.test --cov-report=xml
 after_script:
   - ./cc-test-reporter after-build
