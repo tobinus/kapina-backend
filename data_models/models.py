@@ -130,7 +130,7 @@ class Post(models.Model):
         Episode,
         blank=True,
         verbose_name='Episoder',
-        help_text='Legger til episoder i bunnen av artikkelen.' +
+        help_text='Legger til episoder i bunnen av artikkelen. ' +
         'Episodelisten blir filtrert på valgt program etter at artikkelen er opprettet.')
 
     show = models.ForeignKey(
