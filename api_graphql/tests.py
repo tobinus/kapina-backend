@@ -1,7 +1,8 @@
+import pytest
 from django.core.management import call_command
 from graphene.test import Client
+
 from api_graphql.schema import schema
-import pytest
 
 
 @pytest.fixture(scope='session')
@@ -146,9 +147,7 @@ def test_all_shows(snapshot):
 
 @pytest.mark.django_db
 def test_url_all_shows(client, snapshot):
-    response = client.get(
-        '/graphql?query=query%20{%20allShows%20{%20id%20}%20}'
-    )
+    response = client.get('/graphql?query=query%20{%20allShows%20{%20id%20}%20}')
 
     assert response.status_code == 200
     snapshot.assert_match(response.content)

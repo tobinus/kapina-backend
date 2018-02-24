@@ -10,10 +10,7 @@ class CropImages:
             self.cropping = 'center'
 
     def generate_crop(self, thumb_size):
-        thumb_image = get_thumbnail(
-            self.image, thumb_size,
-            crop=self.cropping, quality=99
-        )
+        thumb_image = get_thumbnail(self.image, thumb_size, crop=self.cropping, quality=99)
         return thumb_image.url
 
     @property

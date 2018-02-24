@@ -11,13 +11,13 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-from decouple import config
+
 import dj_database_url
 import raven
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -31,9 +31,8 @@ DEBUG = config('REVOLT_DEBUG', cast=bool, default=True)
 ALLOWED_HOSTS = config(
     'REVOLT_ALLOWED_HOSTS',
     # Support "host1, host2" etc
-    cast=lambda v: [s.strip() for s in v.split(',')], default='*'
-)
-
+    cast=lambda v: [s.strip() for s in v.split(',')],
+    default='*')
 
 # Application definition
 
@@ -44,9 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'data_models',
-
     'graphene_django',
     'django_summernote',
     'colorfield',
@@ -84,7 +81,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
@@ -125,7 +121,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
@@ -136,18 +131,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = config("REVOLT_MEDIA_ROOT", default=os.path.join(BASE_DIR, 'mediafiles'))
 
 SUMMERNOTE_CONFIG = {
-    'toolbar': [
-        ['style', ['bold', 'italic', 'underline', 'clear']],
-        ['list', ['ul', 'ol']],
-        ['media', ['link', 'picture', 'videoAttributes']],
-        ['tools', ['redo', 'undo', 'fullscreen']]
-    ],
-    'js': (
-        '/static/summernote-video-attributes.js',
-    ),
-    'css': (
-        '/static/summernote-video-attributes.css',
-    )
+    'toolbar': [['style', ['bold', 'italic', 'underline', 'clear']], ['list', ['ul', 'ol']],
+                ['media', ['link', 'picture',
+                           'videoAttributes']], ['tools', ['redo', 'undo', 'fullscreen']]],
+    'js': ('/static/summernote-video-attributes.js', ),
+    'css': ('/static/summernote-video-attributes.css', )
 }
 
 THUMBNAIL_ENGINE = 'sorl_cropping.engine.CropEngine'
@@ -160,6 +148,4 @@ if raven_dsn:
         'release': raven.fetch_git_sha(BASE_DIR),
     }
 
-GRAPHENE = {
-    'SCHEMA': 'api_graphql.schema.schema'
-}
+GRAPHENE = {'SCHEMA': 'api_graphql.schema.schema'}

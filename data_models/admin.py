@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Post, Category, Episode, Show
 from django_summernote.admin import SummernoteModelAdmin
 from sorl_cropping import ImageCroppingMixin
+
+from .models import Category, Episode, Post, Show
 
 
 class ShowFilter(admin.SimpleListFilter):
@@ -52,7 +53,7 @@ class ShowAdmin(SummernoteModelAdmin):
     list_display = ('name', 'archived')
     list_filter = ('archived', )
     ordering = ('archived', 'name')
-    search_fields = ('name',)
+    search_fields = ('name', )
 
 
 @admin.register(Episode)
