@@ -12,3 +12,6 @@ __pycache__/
 .DS_Store
 node_modules/
 .envrc
+.coverage
+.vscode/
+.pytest_cache/
