@@ -75,9 +75,8 @@ class Episode(models.Model):
     use_title = models.BooleanField(
         'Bruk tittel',
         default=False,
-        help_text=
-        'Vis tittelen på episoden. Om ikke tittel benyttes vises "Navn på show" + "Publiseringsdato"'
-    )
+        help_text='Vis tittelen på episoden. ' +
+        'Om ikke tittel benyttes vises "Navn på show" + "Publiseringsdato"')
     lead = models.CharField('Beskrivelse', max_length=140)
 
     show = models.ForeignKey(
@@ -131,9 +130,8 @@ class Post(models.Model):
         Episode,
         blank=True,
         verbose_name='Episoder',
-        help_text=
-        'Legger til episoder i bunnen av artikkelen. Episodelisten blir filtrert på valgt program etter at artikkelen er opprettet.'
-    )
+        help_text='Legger til episoder i bunnen av artikkelen.' +
+        'Episodelisten blir filtrert på valgt program etter at artikkelen er opprettet.')
 
     show = models.ForeignKey(
         Show,
