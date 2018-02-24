@@ -136,9 +136,7 @@ class EpisodeType(graphene.ObjectType):
         if episode.use_title:
             return episode.title
         else:
-            return '{} {}'.format(
-                episode.show.name, episode.created_at.strftime('%d.%m.%Y')
-            )
+            return '{} {}'.format(episode.show.name, episode.created_at.strftime('%d.%m.%Y'))
 
     @staticmethod
     def resolve_created_by(episode, info):
@@ -189,56 +187,27 @@ class Query(graphene.ObjectType):
     """
     name = 'Query'
 
-    category = graphene.Field(
-        CategoryType,
-        id=graphene.Int()
-    )
+    category = graphene.Field(CategoryType, id=graphene.Int())
 
-    all_categories = graphene.List(
-        CategoryType
-    )
+    all_categories = graphene.List(CategoryType)
 
-    show = graphene.Field(
-        ShowType,
-        id=graphene.Int(),
-        slug=graphene.String()
-    )
+    show = graphene.Field(ShowType, id=graphene.Int(), slug=graphene.String())
 
-    all_shows = graphene.List(
-        ShowType
-    )
+    all_shows = graphene.List(ShowType)
 
-    episode = graphene.Field(
-        EpisodeType,
-        id=graphene.Int()
-    )
+    episode = graphene.Field(EpisodeType, id=graphene.Int())
 
-    all_episodes = graphene.List(
-        EpisodeType
-    )
+    all_episodes = graphene.List(EpisodeType)
 
-    post = graphene.Field(
-        PostType,
-        id=graphene.Int(),
-        slug=graphene.String()
-    )
+    post = graphene.Field(PostType, id=graphene.Int(), slug=graphene.String())
 
-    all_posts = graphene.List(
-        PostType
-    )
+    all_posts = graphene.List(PostType)
 
-    front_page_posts = graphene.List(
-        PostType
-    )
+    front_page_posts = graphene.List(PostType)
 
-    user = graphene.Field(
-        UserType,
-        id=graphene.Int()
-    )
+    user = graphene.Field(UserType, id=graphene.Int())
 
-    all_users = graphene.List(
-        UserType
-    )
+    all_users = graphene.List(UserType)
 
     cropped_images = graphene.Field(CroppedImagesType)
 
@@ -264,9 +233,7 @@ class Query(graphene.ObjectType):
     def resolve_episode(root, info, id):
         episode = Episode.objects.get(pk=id)
         if episode.publish_at >= timezone.now():
-            raise Episode.DoesNotExist(
-                'Episode matching query does not exist.'
-                )
+            raise Episode.DoesNotExist('Episode matching query does not exist.')
         else:
             return episode
 

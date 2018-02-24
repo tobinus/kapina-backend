@@ -52,7 +52,7 @@ class ShowAdmin(SummernoteModelAdmin):
     list_display = ('name', 'archived')
     list_filter = ('archived', )
     ordering = ('archived', 'name')
-    search_fields = ('name',)
+    search_fields = ('name', )
 
 
 @admin.register(Episode)
