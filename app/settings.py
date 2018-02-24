@@ -31,7 +31,7 @@ DEBUG = config('REVOLT_DEBUG', cast=bool, default=True)
 ALLOWED_HOSTS = config(
     'REVOLT_ALLOWED_HOSTS',
     # Support "host1, host2" etc
-    cast=lambda v: [s.strip() for s in v.split(',')], default=''
+    cast=lambda v: [s.strip() for s in v.split(',')], default='*'
 )
 
 
@@ -47,10 +47,7 @@ INSTALLED_APPS = [
 
     'data_models',
 
-    'django_graphiql',
-    'graphene.contrib.django',
-    'grappelli',
-    'filebrowser',
+    'graphene_django',
     'django_summernote',
     'colorfield',
     'sorl.thumbnail',
@@ -162,3 +159,7 @@ if raven_dsn:
         # Use git to determine release
         'release': raven.fetch_git_sha(BASE_DIR),
     }
+
+GRAPHENE = {
+    'SCHEMA': 'api_graphql.schema.schema'
+}

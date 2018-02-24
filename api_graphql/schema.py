@@ -27,38 +27,38 @@ class PostType(graphene.ObjectType):
     title = graphene.String()
     slug = graphene.String()
     image = graphene.String()
-    cropped_images = graphene.Field('CroppedImagesType')
+    cropped_images = graphene.Field(lambda: CroppedImagesType)
     lead = graphene.String()
     content = graphene.String()
-    categories = graphene.List('CategoryType')
+    categories = graphene.List(lambda: CategoryType)
     deleted = graphene.Boolean()
-    episodes = graphene.List('EpisodeType')
+    episodes = graphene.List(lambda: EpisodeType)
 
-    show = graphene.Field('ShowType')
+    show = graphene.Field(lambda: ShowType)
 
     publish_at = graphene.String()
     created_at = graphene.String()
     updated_at = graphene.String()
-    created_by = graphene.Field('UserType')
+    created_by = graphene.Field(lambda: UserType)
 
     @staticmethod
-    def resolve_show(post, args, info):
+    def resolve_show(post, info):
         return post.show
 
     @staticmethod
-    def resolve_categories(post, args, info):
+    def resolve_categories(post, info):
         return post.categories.all()
 
     @staticmethod
-    def resolve_episodes(post, args, info):
+    def resolve_episodes(post, info):
         return post.episodes.all()
 
     @staticmethod
-    def resolve_created_by(post, args, info):
+    def resolve_created_by(post, info):
         return post.created_by
 
     @staticmethod
-    def resolve_cropped_images(post, args, info):
+    def resolve_cropped_images(post, info):
         return CropImages(post.image, post.cropping)
 
 
@@ -73,39 +73,39 @@ class ShowType(graphene.ObjectType):
     image = graphene.String()
     lead = graphene.String()
     content = graphene.String()
-    categories = graphene.List('CategoryType')
+    categories = graphene.List(lambda: CategoryType)
 
     slug = graphene.String()
     archived = graphene.Boolean()
 
     created_at = graphene.String()
     updated_at = graphene.String()
-    created_by = graphene.Field('UserType')
+    created_by = graphene.Field(lambda: UserType)
 
-    episodes = graphene.List('EpisodeType')
+    episodes = graphene.List(lambda: EpisodeType)
 
-    posts = graphene.List('PostType')
+    posts = graphene.List(lambda: PostType)
 
     @staticmethod
-    def resolve_created_by(show, args, info):
+    def resolve_created_by(show, info):
         return show.created_by
 
     @staticmethod
-    def resolve_categories(show, args, info):
+    def resolve_categories(show, info):
         return show.categories.all()
 
     @staticmethod
-    def resolve_episodes(show, args, info):
+    def resolve_episodes(show, info):
         return show.episodes \
             .order_by('-publish_at') \
             .filter(publish_at__lte=timezone.now())
 
     @staticmethod
-    def resolve_posts(show, args, info):
+    def resolve_posts(show, info):
         return show.posts.order_by('-created_at')
 
     @staticmethod
-    def resolve_image(show, args, info):
+    def resolve_image(show, info):
         return show.image.url
 
 
@@ -119,20 +119,20 @@ class EpisodeType(graphene.ObjectType):
     lead = graphene.String()
     digas_broadcast_id = graphene.Int()
     digas_show_id = graphene.Int()
-    categories = graphene.List('CategoryType')
+    categories = graphene.List(lambda: CategoryType)
 
-    show = graphene.Field('ShowType')
+    show = graphene.Field(lambda: ShowType)
 
     created_at = graphene.String()
     updated_at = graphene.String()
     publish_at = graphene.String()
-    created_by = graphene.Field('UserType')
+    created_by = graphene.Field(lambda: UserType)
 
     podcast_url = graphene.String()
     on_demand_url = graphene.String()
 
     @staticmethod
-    def resolve_title(episode, args, info):
+    def resolve_title(episode, info):
         if episode.use_title:
             return episode.title
         else:
@@ -141,15 +141,15 @@ class EpisodeType(graphene.ObjectType):
             )
 
     @staticmethod
-    def resolve_created_by(episode, args, info):
+    def resolve_created_by(episode, info):
         return episode.created_by
 
     @staticmethod
-    def resolve_categories(episode, args, info):
+    def resolve_categories(episode, info):
         return episode.categories.all()
 
     @staticmethod
-    def resolve_show(episode, args, info):
+    def resolve_show(episode, info):
         return episode.show
 
 
@@ -161,14 +161,14 @@ class UserType(graphene.ObjectType):
     id = graphene.Int()
     full_name = graphene.String()
 
-    publications = graphene.List('PostType')
+    publications = graphene.List(lambda: PostType)
 
     @staticmethod
-    def resolve_publications(user, args, info):
+    def resolve_publications(user, info):
         return user.publications.order_by('-created_at')
 
     @staticmethod
-    def resolve_full_name(user, args, info):
+    def resolve_full_name(user, info):
         return user.get_full_name()
 
 
@@ -243,29 +243,25 @@ class Query(graphene.ObjectType):
     cropped_images = graphene.Field(CroppedImagesType)
 
     @staticmethod
-    def resolve_category(root, args, info):
-        id = args.get('id')
+    def resolve_category(root, info, id):
         return Category.objects.get(pk=id)
 
     @staticmethod
-    def resolve_all_categories(root, args, info):
+    def resolve_all_categories(root, info):
         return Category.objects.all()
 
     @staticmethod
-    def resolve_show(root, args, info):
-        id = args.get('id')
-        slug = args.get('slug')
+    def resolve_show(root, info, id=None, slug=None):
         if id:
             return Show.objects.get(pk=id)
-        return Show.objects.filter(slug=slug)[0]
+        return Show.objects.get(slug=slug)
 
     @staticmethod
-    def resolve_all_shows(root, args, info):
+    def resolve_all_shows(root, info):
         return Show.objects.all()
 
     @staticmethod
-    def resolve_episode(root, args, info):
-        id = args.get('id')
+    def resolve_episode(root, info, id):
         episode = Episode.objects.get(pk=id)
         if episode.publish_at >= timezone.now():
             raise Episode.DoesNotExist(
@@ -275,36 +271,32 @@ class Query(graphene.ObjectType):
             return episode
 
     @staticmethod
-    def resolve_all_episodes(root, args, info):
+    def resolve_all_episodes(root, info):
         return Episode.objects \
             .order_by('-publish_at') \
             .filter(publish_at__lte=timezone.now())
 
     @staticmethod
-    def resolve_post(root, args, info):
-        id = args.get('id')
-        slug = args.get('slug')
+    def resolve_post(root, info, id=None, slug=None):
         if id:
             return Post.objects.get(pk=id)
-        return Post.objects.filter(slug=slug)[0]
+        return Post.objects.get(slug=slug)
 
     @staticmethod
-    def resolve_all_posts(root, args, info):
+    def resolve_all_posts(root, info):
         return Post.objects.order_by('-created_at')
 
     @staticmethod
-    def resolve_front_page_posts(root, args, info):
+    def resolve_front_page_posts(root, info):
         return Post.objects.order_by('-created_at')[:30]
 
     @staticmethod
-    def resolve_all_users(root, args, info):
+    def resolve_all_users(root, info):
         return User.objects.all()
 
     @staticmethod
-    def resolve_user(root, args, info):
-        id = args.get('id')
+    def resolve_user(root, info, id):
         return User.objects.get(pk=id)
 
 
-schema = graphene.Schema(name='Radio Revolt GraphQL Schema')
-schema.query = Query
+schema = graphene.Schema(query=Query)

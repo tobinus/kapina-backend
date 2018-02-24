@@ -91,7 +91,8 @@ class Episode(models.Model):
     show = models.ForeignKey(
         Show,
         related_name='episodes',
-        verbose_name='Program'
+        verbose_name='Program',
+        on_delete=models.CASCADE,
     )
 
     categories = models.ManyToManyField(
@@ -154,7 +155,8 @@ class Post(models.Model):
         blank=True,
         null=True,
         related_name='posts',
-        verbose_name='Program'
+        verbose_name='Program',
+        on_delete=models.CASCADE
     )
 
     categories = models.ManyToManyField(
