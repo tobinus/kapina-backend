@@ -1,6 +1,7 @@
 version: '3'
 services:
   base:
+    image: kapina_base:latest
     build:
       context: .
       dockerfile: Dockerfile.base
@@ -30,3 +31,23 @@ services:
       - REVOLT_MEDIA_ROOT
       - REVOLT_SECRET_KEY
       - REVOLT_RAVEN_DSN
+      - DATABASE_URL
+  production:
+    depends_on:
+      - base
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    volumes:
+      - .:/srv/app/
+    command: ./docker/run_production.sh
+    ports:
+      - "8000:8000"
+    environment:
+      - REVOLT_DEBUG=false
+      - REVOLT_ALLOWED_HOSTS
+      - REVOLT_STATIC_ROOT
+      - REVOLT_MEDIA_ROOT
+      - REVOLT_SECRET_KEY
+      - REVOLT_RAVEN_DSN
+      - DATABASE_URL
