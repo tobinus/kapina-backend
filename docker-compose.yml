@@ -10,7 +10,7 @@ services:
       dockerfile: Dockerfile.base
     volumes:
       - .:/srv/app/
-    command: /srv/app/run_tests.sh
+    command: ./docker/run_tests.sh
     environment:
       - GIT_COMMITTED_AT
       - CC_TEST_REPORTER_ID
@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile.base
     volumes:
       - .:/srv/app/
-    command: ./run_dev.sh
+    command: ./docker/run_dev.sh
     ports:
       - "8000:8000"
     environment:
