@@ -1,4 +1,3 @@
 FROM kapina_base:latest
 
-RUN apk add --update --no-cache linux-headers
-RUN pip install uwsgi
+RUN apk add --update --no-cache uwsgi-python3
