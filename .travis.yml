@@ -7,9 +7,9 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
-  - docker-compose -f docker-compose.test.yml up
+  - docker-compose run test
 after_script:
-  - docker-compose -f docker-compose.test.yml run backend ./cc-test-reporter after-build
+  - docker-compose run test ./cc-test-reporter after-build
 env:
   global:
     - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)

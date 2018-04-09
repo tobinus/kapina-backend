@@ -1,0 +1,32 @@
+version: '3'
+services:
+  base:
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+    volumes:
+      - .:/srv/app/
+    command: /srv/app/run_tests.sh
+    environment:
+      - GIT_COMMITTED_AT
+      - CC_TEST_REPORTER_ID
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+    volumes:
+      - .:/srv/app/
+    command: ./run_dev.sh
+    ports:
+      - "8000:8000"
+    environment:
+      - REVOLT_DEBUG
+      - REVOLT_ALLOWED_HOSTS
+      - REVOLT_STATIC_ROOT
+      - REVOLT_MEDIA_ROOT
+      - REVOLT_SECRET_KEY
+      - REVOLT_RAVEN_DSN
