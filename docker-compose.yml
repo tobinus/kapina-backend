@@ -1,14 +1,10 @@
-version: '3'
+version: '3.6'
 services:
-  base:
-    image: kapina_base:latest
-    build:
-      context: .
-      dockerfile: Dockerfile.base
   test:
     build:
       context: .
-      dockerfile: Dockerfile.base
+      target: base
+      dockerfile: Dockerfile
     volumes:
       - .:/srv/app/
     command: ./docker/run_tests.sh
@@ -18,7 +14,8 @@ services:
   dev:
     build:
       context: .
-      dockerfile: Dockerfile.base
+      target: base
+      dockerfile: Dockerfile
     volumes:
       - .:/srv/app/
     command: ./docker/run_dev.sh
@@ -33,11 +30,10 @@ services:
       - REVOLT_RAVEN_DSN
       - DATABASE_URL
   production:
-    depends_on:
-      - base
     build:
       context: .
-      dockerfile: Dockerfile.prod
+      target: production
+      dockerfile: Dockerfile
     volumes:
       - .:/srv/app/
     command: ./docker/run_production.sh

@@ -1,3 +1,0 @@
-FROM kapina_base:latest
-
-RUN apk add --update --no-cache uwsgi-python3
