@@ -29,7 +29,9 @@ WORKDIR /srv/app
 RUN apk add --update --no-cache python3 git jpeg zlib
 COPY --from=base /srv/wheels /srv/wheels
 COPY requirements.txt .
+COPY requirements-test.txt .
 RUN pip3 install --no-index --no-cache-dir --find-links=/srv/wheels -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements-test.txt
 
 CMD ["./docker/run_tests.sh"]
 
