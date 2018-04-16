@@ -3,22 +3,20 @@ services:
   test:
     build:
       context: .
-      target: base
+      target: test
       dockerfile: Dockerfile
     volumes:
       - .:/srv/app/
-    command: ./docker/run_tests.sh
     environment:
       - GIT_COMMITTED_AT
       - CC_TEST_REPORTER_ID
   dev:
     build:
       context: .
-      target: base
+      target: dev
       dockerfile: Dockerfile
     volumes:
       - .:/srv/app/
-    command: ./docker/run_dev.sh
     ports:
       - "8000:8000"
     environment:
@@ -36,7 +34,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - .:/srv/app/
-    command: ./docker/run_production.sh
     ports:
       - "8000:8000"
     environment:
