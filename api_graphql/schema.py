@@ -288,7 +288,7 @@ class Query(graphene.ObjectType):
     @staticmethod
     def resolve_paginated_posts(self, info, page):
         page_size = 10
-        qs = Post.objects.all()
+        qs = Post.objects.order_by('-created_at')
         return get_paginator(qs, page_size, page, PostPaginatedType)
 
 
