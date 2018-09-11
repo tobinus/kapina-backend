@@ -1,6 +1,7 @@
 import graphene
 from django.contrib.auth.models import User
 from django.utils import timezone
+from api_graphql.utils import get_paginator
 
 from data_models.crop import CropImages
 from data_models.models import Category, Episode, Post, Settings, Show
@@ -65,6 +66,13 @@ class PostType(graphene.ObjectType):
     @staticmethod
     def resolve_cropped_images(post, info):
         return CropImages(post.image, post.cropping)
+
+class PostPaginatedType(graphene.ObjectType):
+    page = graphene.Int()
+    pages = graphene.Int()
+    has_next = graphene.Boolean()
+    has_prev = graphene.Boolean()
+    objects = graphene.List(PostType)
 
 
 class ShowType(graphene.ObjectType):
@@ -185,7 +193,6 @@ class CroppedImagesType(graphene.ObjectType):
     small = graphene.String()
     thumbnail = graphene.String()
 
-
 class Query(graphene.ObjectType):
     """
     Radio Revolt query description
@@ -209,6 +216,8 @@ class Query(graphene.ObjectType):
     post = graphene.Field(PostType, id=graphene.Int(), slug=graphene.String())
 
     all_posts = graphene.List(PostType)
+
+    paginated_posts = graphene.Field(PostPaginatedType, page=graphene.Int())
 
     front_page_posts = graphene.List(PostType)
 
@@ -275,6 +284,12 @@ class Query(graphene.ObjectType):
     @staticmethod
     def resolve_user(root, info, id):
         return User.objects.get(pk=id)
+
+    @staticmethod
+    def resolve_paginated_posts(self, info, page):
+        page_size = 10
+        qs = Post.objects.all()
+        return get_paginator(qs, page_size, page, PostPaginatedType)
 
 
 schema = graphene.Schema(query=Query)
