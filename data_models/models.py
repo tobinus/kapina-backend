@@ -23,6 +23,18 @@ class Category(models.Model):
     def __str__(self):
         return str(self.__unicode__())
 
+class Information(models.Model):
+    class Meta:
+        verbose_name = 'Informasjon'
+        verbose_name_plural = 'Informasjon'
+
+    about = models.TextField('Om Radio Revolt')
+
+    def __unicode__(self):
+        return 'Informasjon om Radio Revolt'
+
+    def __str__(self):
+        return str(self.__unicode__())
 
 class Show(models.Model):
     class Meta:

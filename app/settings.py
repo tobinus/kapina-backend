@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'sorl_cropping',
     'raven.contrib.django.raven_compat',
+    'solo',
 ]
 
 MIDDLEWARE = [

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 from sorl_cropping import ImageCroppingMixin
 
-from .models import Category, Episode, Post, Show
+from .models import Category, Information, Episode, Post, Show
 
 
 class ShowFilter(admin.SimpleListFilter):
@@ -45,6 +45,10 @@ class PostAdmin(ImageCroppingMixin, SummernoteModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(SummernoteModelAdmin):
+    pass
+
+@admin.register(Information)
+class InformationAdmin(SummernoteModelAdmin):
     pass
 
 
