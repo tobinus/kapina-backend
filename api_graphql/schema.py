@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 from data_models.crop import CropImages
-from data_models.models import Category, Settings, Episode, Post, Show
+from data_models.models import Category, Episode, Post, Settings, Show
 
 
 class CategoryType(graphene.ObjectType):
@@ -15,6 +15,7 @@ class CategoryType(graphene.ObjectType):
     name = graphene.String()
     text_color = graphene.String()
     background_color = graphene.String()
+
 
 class SettingsType(graphene.ObjectType):
 

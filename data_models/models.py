@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError, models
 from django.utils.crypto import get_random_string
 from django.utils.text import slugify
-from sorl_cropping import ImageRatioField
 from solo.models import SingletonModel
+from sorl_cropping import ImageRatioField
 
 
 class Category(models.Model):
@@ -24,6 +24,7 @@ class Category(models.Model):
     def __str__(self):
         return str(self.__unicode__())
 
+
 class Settings(SingletonModel):
     class Meta:
         verbose_name = 'Innstillinger'
@@ -35,6 +36,7 @@ class Settings(SingletonModel):
 
     def __str__(self):
         return str(self.__unicode__())
+
 
 class Show(models.Model):
     class Meta:

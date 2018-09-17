@@ -37,6 +37,7 @@ def test_frontpage(snapshot):
 
     snapshot.assert_match(executed)
 
+
 @pytest.mark.django_db
 def test_settings(snapshot):
     client = Client(schema)
