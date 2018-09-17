@@ -169,3 +169,27 @@ snapshots['test_settings 1'] = {
         }
     }
 }
+
+snapshots['test_all_categories 1'] = {
+    'data': {
+        'allCategories': [
+            {
+                'backgroundColor': '#ECB61C',
+                'id': 1,
+                'name': 'Radio',
+                'textColor': '#000000'
+            }
+        ]
+    }
+}
+
+snapshots['test_category_by_id 1'] = {
+    'data': {
+        'category': {
+            'backgroundColor': '#ECB61C',
+            'id': 1,
+            'name': 'Radio',
+            'textColor': '#000000'
+        }
+    }
+}

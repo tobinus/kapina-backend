@@ -159,6 +159,36 @@ def test_all_shows(snapshot):
 
 
 @pytest.mark.django_db
+def test_all_categories(snapshot):
+    client = Client(schema)
+    executed = client.execute('''query {
+        allCategories {
+            id,
+            name,
+            textColor,
+            backgroundColor
+        }
+    }''')
+
+    snapshot.assert_match(executed)
+
+
+@pytest.mark.django_db
+def test_category_by_id(snapshot):
+    client = Client(schema)
+    executed = client.execute('''query {
+        category(id:1) {
+            id,
+            name,
+            textColor,
+            backgroundColor
+        }
+    }''')
+
+    snapshot.assert_match(executed)
+
+
+@pytest.mark.django_db
 def test_url_all_shows(client, snapshot):
     response = client.get('/graphql?query=query%20{%20allShows%20{%20id%20}%20}')
 

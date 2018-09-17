@@ -37,6 +37,13 @@ def test_admin_episode(admin_client):
 
 
 @pytest.mark.django_db
+def test_admin_settings(admin_client):
+    response = admin_client.get('/admin/data_models/settings/')
+
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
 def test_admin_post_details(admin_client):
     response = admin_client.get('/admin/data_models/post/2/change/')
 
