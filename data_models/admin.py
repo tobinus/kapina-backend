@@ -1,8 +1,9 @@
 from django.contrib import admin
+from solo.admin import SingletonModelAdmin
 from django_summernote.admin import SummernoteModelAdmin
 from sorl_cropping import ImageCroppingMixin
 
-from .models import Category, Information, Episode, Post, Show
+from .models import Category, Settings, Episode, Post, Show
 
 
 class ShowFilter(admin.SimpleListFilter):
@@ -47,8 +48,8 @@ class PostAdmin(ImageCroppingMixin, SummernoteModelAdmin):
 class CategoryAdmin(SummernoteModelAdmin):
     pass
 
-@admin.register(Information)
-class InformationAdmin(SummernoteModelAdmin):
+@admin.register(Settings)
+class SettingsAdmin(SummernoteModelAdmin, SingletonModelAdmin):
     pass
 
 

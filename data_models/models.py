@@ -6,6 +6,7 @@ from django.db import IntegrityError, models
 from django.utils.crypto import get_random_string
 from django.utils.text import slugify
 from sorl_cropping import ImageRatioField
+from solo.models import SingletonModel
 
 
 class Category(models.Model):
@@ -23,15 +24,14 @@ class Category(models.Model):
     def __str__(self):
         return str(self.__unicode__())
 
-class Information(models.Model):
+class Settings(SingletonModel):
     class Meta:
-        verbose_name = 'Informasjon'
-        verbose_name_plural = 'Informasjon'
+        verbose_name = 'Innstillinger'
 
     about = models.TextField('Om Radio Revolt')
 
     def __unicode__(self):
-        return 'Informasjon om Radio Revolt'
+        return 'Innstillinger for Radio Revolt'
 
     def __str__(self):
         return str(self.__unicode__())
