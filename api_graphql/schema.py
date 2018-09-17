@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 from data_models.crop import CropImages
-from data_models.models import Category, Episode, Post, Show
+from data_models.models import Category, Episode, Post, Settings, Show
 
 
 class CategoryType(graphene.ObjectType):
@@ -15,6 +15,12 @@ class CategoryType(graphene.ObjectType):
     name = graphene.String()
     text_color = graphene.String()
     background_color = graphene.String()
+
+
+class SettingsType(graphene.ObjectType):
+
+    id = graphene.Int()
+    about = graphene.String()
 
 
 class PostType(graphene.ObjectType):
@@ -190,6 +196,8 @@ class Query(graphene.ObjectType):
 
     all_categories = graphene.List(CategoryType)
 
+    settings = graphene.Field(SettingsType)
+
     show = graphene.Field(ShowType, id=graphene.Int(), slug=graphene.String())
 
     all_shows = graphene.List(ShowType)
@@ -217,6 +225,10 @@ class Query(graphene.ObjectType):
     @staticmethod
     def resolve_all_categories(root, info):
         return Category.objects.all()
+
+    @staticmethod
+    def resolve_settings(root, info):
+        return Settings.get_solo()
 
     @staticmethod
     def resolve_show(root, info, id=None, slug=None):

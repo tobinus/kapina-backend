@@ -2,7 +2,7 @@
 # snapshottest: v1 - https://goo.gl/zC4yUc
 from __future__ import unicode_literals
 
-from snapshottest.snapshot import Snapshot
+from snapshottest import Snapshot
 
 
 snapshots = Snapshot()
@@ -161,3 +161,11 @@ snapshots['test_all_shows 1'] = {
 }
 
 snapshots['test_url_all_shows 1'] = b'{"data":{"allShows":[{"id":1},{"id":2}]}}'
+
+snapshots['test_settings 1'] = {
+    'data': {
+        'settings': {
+            'about': '<p>About text</p>'
+        }
+    }
+}
