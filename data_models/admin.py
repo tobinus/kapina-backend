@@ -1,8 +1,8 @@
+from django import forms
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 from solo.admin import SingletonModelAdmin
 from sorl_cropping import ImageCroppingMixin
-from django import forms
 
 from .models import Category, Episode, Post, Settings, Show
 
@@ -75,4 +75,3 @@ class EpisodeAdmin(admin.ModelAdmin):
         if db_field.name == 'lead':
             formfield.widget = forms.Textarea(attrs={'cols': 60, 'rows': 5})
         return formfield
-
