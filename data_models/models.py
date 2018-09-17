@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError, models
 from django.utils.crypto import get_random_string
 from django.utils.text import slugify
+from solo.models import SingletonModel
 from sorl_cropping import ImageRatioField
 
 
@@ -19,6 +20,19 @@ class Category(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def __str__(self):
+        return str(self.__unicode__())
+
+
+class Settings(SingletonModel):
+    class Meta:
+        verbose_name = 'Innstillinger'
+
+    about = models.TextField('Om Radio Revolt')
+
+    def __unicode__(self):
+        return 'Innstillinger for Radio Revolt'
 
     def __str__(self):
         return str(self.__unicode__())

@@ -39,6 +39,19 @@ def test_frontpage(snapshot):
 
 
 @pytest.mark.django_db
+def test_settings(snapshot):
+    client = Client(schema)
+
+    executed = client.execute('''query {
+        settings {
+            about,
+        }
+    }''')
+
+    snapshot.assert_match(executed)
+
+
+@pytest.mark.django_db
 def test_post_by_slug(snapshot):
     client = Client(schema)
     executed = client.execute('''query {
@@ -139,6 +152,36 @@ def test_all_shows(snapshot):
         lead,
         slug,
         archived
+        }
+    }''')
+
+    snapshot.assert_match(executed)
+
+
+@pytest.mark.django_db
+def test_all_categories(snapshot):
+    client = Client(schema)
+    executed = client.execute('''query {
+        allCategories {
+            id,
+            name,
+            textColor,
+            backgroundColor
+        }
+    }''')
+
+    snapshot.assert_match(executed)
+
+
+@pytest.mark.django_db
+def test_category_by_id(snapshot):
+    client = Client(schema)
+    executed = client.execute('''query {
+        category(id:1) {
+            id,
+            name,
+            textColor,
+            backgroundColor
         }
     }''')
 

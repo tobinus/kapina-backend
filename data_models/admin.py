@@ -1,8 +1,10 @@
+from django import forms
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
+from solo.admin import SingletonModelAdmin
 from sorl_cropping import ImageCroppingMixin
 
-from .models import Category, Episode, Post, Show
+from .models import Category, Episode, Post, Settings, Show
 
 
 class ShowFilter(admin.SimpleListFilter):
@@ -48,6 +50,11 @@ class CategoryAdmin(SummernoteModelAdmin):
     pass
 
 
+@admin.register(Settings)
+class SettingsAdmin(SummernoteModelAdmin, SingletonModelAdmin):
+    pass
+
+
 @admin.register(Show)
 class ShowAdmin(SummernoteModelAdmin):
     list_display = ('name', 'archived')
@@ -61,3 +68,10 @@ class EpisodeAdmin(admin.ModelAdmin):
     list_display = ('title', 'show', 'publish_at')
     list_filter = (ActiveShowFilter, ArchivedShowFilter)
     search_fields = ('title', 'show__name')
+
+    # Set form field for "lead" to Textarea instead of Textinput
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        formfield = super(EpisodeAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+        if db_field.name == 'lead':
+            formfield.widget = forms.Textarea(attrs={'cols': 60, 'rows': 5})
+        return formfield
