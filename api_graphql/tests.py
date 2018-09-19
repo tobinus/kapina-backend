@@ -12,46 +12,6 @@ def django_db_setup(django_db_setup, django_db_blocker):
 
 
 @pytest.mark.django_db
-def test_frontpage(snapshot):
-    client = Client(schema)
-
-    executed = client.execute('''query {
-        frontPagePosts {
-            id,
-            title,
-            slug,
-            croppedImages {
-                large,
-                medium,
-                small
-            },
-            lead,
-            publishAt,
-            categories {
-                name,
-                textColor,
-                backgroundColor
-            }
-        }
-    }''')
-
-    snapshot.assert_match(executed)
-
-
-@pytest.mark.django_db
-def test_settings(snapshot):
-    client = Client(schema)
-
-    executed = client.execute('''query {
-        settings {
-            about,
-        }
-    }''')
-
-    snapshot.assert_match(executed)
-
-
-@pytest.mark.django_db
 def test_post_by_slug(snapshot):
     client = Client(schema)
     executed = client.execute('''query {
@@ -77,6 +37,18 @@ def test_post_by_slug(snapshot):
             title,
             lead,
         }
+        }
+    }''')
+
+    snapshot.assert_match(executed)
+
+@pytest.mark.django_db
+def test_settings(snapshot):
+    client = Client(schema)
+
+    executed = client.execute('''query {
+        settings {
+            about,
         }
     }''')
 
@@ -194,3 +166,28 @@ def test_url_all_shows(client, snapshot):
 
     assert response.status_code == 200
     snapshot.assert_match(response.content)
+
+@pytest.mark.django_db
+def test_paginated_posts(client, snapshot):
+    client = Client(schema)
+    response = client.execute('''query {
+        paginatedPosts(page: 1) {
+            hasPrev,
+            hasNext,
+            pages,
+            objects {
+                id,
+                title,
+                slug,
+                lead,
+                publishAt,
+                categories {
+                    name,
+                    textColor,
+                    backgroundColor
+                }
+            }
+        }
+    }''')
+
+    snapshot.assert_match(response)
