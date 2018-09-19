@@ -42,6 +42,7 @@ def test_post_by_slug(snapshot):
 
     snapshot.assert_match(executed)
 
+
 @pytest.mark.django_db
 def test_settings(snapshot):
     client = Client(schema)
@@ -166,6 +167,7 @@ def test_url_all_shows(client, snapshot):
 
     assert response.status_code == 200
     snapshot.assert_match(response.content)
+
 
 @pytest.mark.django_db
 def test_paginated_posts(client, snapshot):

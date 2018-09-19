@@ -1,8 +1,8 @@
 import graphene
 from django.contrib.auth.models import User
 from django.utils import timezone
-from api_graphql.utils import get_paginator
 
+from api_graphql.utils import get_paginator
 from data_models.crop import CropImages
 from data_models.models import Category, Episode, Post, Settings, Show
 
@@ -66,6 +66,7 @@ class PostType(graphene.ObjectType):
     @staticmethod
     def resolve_cropped_images(post, info):
         return CropImages(post.image, post.cropping)
+
 
 class PostPaginatedType(graphene.ObjectType):
     page = graphene.Int()
@@ -192,6 +193,7 @@ class CroppedImagesType(graphene.ObjectType):
     medium = graphene.String()
     small = graphene.String()
     thumbnail = graphene.String()
+
 
 class Query(graphene.ObjectType):
     """
