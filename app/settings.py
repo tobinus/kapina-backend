@@ -141,7 +141,7 @@ SUMMERNOTE_CONFIG = {
     'css': ('/static/summernote-video-attributes.css', )
 }
 
-CKEDITOR_UPLOAD_PATH = 'ckeditor/'
+CKEDITOR_UPLOAD_PATH = 'ckeditor'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_CONFIGS = {
     'default': {
@@ -156,8 +156,12 @@ CKEDITOR_CONFIGS = {
                 'items': ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             },
             {
-                'name': 'basicstyles',
-                'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Blockquote', '-', 'RemoveFormat'],
+                'name':
+                'basicstyles',
+                'items': [
+                    'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript',
+                    'Blockquote', '-', 'RemoveFormat'
+                ],
             },
             {
                 'name': 'colors',
@@ -173,29 +177,44 @@ CKEDITOR_CONFIGS = {
                 'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
             },
             {
-                'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
-            {
-                'name': 'insert',
-                'items': ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'Iframe']
+                'name': 'links',
+                'items': ['Link', 'Unlink', 'Anchor']
             },
-            {'name': 'embedding', 'items': ['oembed', 'Iframe']}
+            {
+                'name':
+                'insert',
+                'items':
+                ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'Iframe', 'Youtube']
+            },
         ],
-        'toolbar': 'Article',
-        'height': 500,
-        'width': 1000,
-        # 'filebrowserWindowHeight': 725,
-        # 'filebrowserWindowWidth': 940,
-        # 'toolbarCanCollapse': True,
-        # 'forcePasteAsPlainText': True,
-        'font_names': 'Arial/Arial, Helvetica, sans-serif',
-        'font_defaultLabel': 'Arial',
-        'tabSpaces': 4,
-        'extraPlugins': ','.join([
-            'uploadimage', # the upload image feature
+        'toolbar':
+        'Article',
+        'height':
+        800,
+        'width':
+        1000,
+        'forcePasteAsPlainText':
+        True,
+        'font_names':
+        'Arial/Arial, Helvetica, sans-serif',
+        'font_defaultLabel':
+        'Arial',
+        'youtube_responsive':
+        True,
+        'youtube_disabled_fields': [
+            'txtWidth',
+            'txtHeight',
+            'txtEmbed',
+        ],
+        'tabSpaces':
+        4,
+        'extraPlugins':
+        ','.join([
             # your extra plugins here
+            'uploadimage',
             'autolink',
-            'oembed',
-            # 'image2',
+            'image2',
+            'youtube',
             # 'devtools',
             'widget',
             'lineutils',
@@ -206,7 +225,6 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
-
 
 THUMBNAIL_ENGINE = 'sorl_cropping.engine.CropEngine'
 
