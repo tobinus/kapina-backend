@@ -7,6 +7,7 @@ from django.utils.crypto import get_random_string
 from django.utils.text import slugify
 from solo.models import SingletonModel
 from sorl_cropping import ImageRatioField
+from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
@@ -137,7 +138,7 @@ class Post(models.Model):
         verbose_name='Bildeutsnitt',
         help_text='Velg bildeutsnitt')
     lead = models.CharField('Ingress', max_length=140)
-    content = models.TextField('Brødtekst')
+    content = RichTextField('Brødtekst')
     deleted = models.BooleanField('Slettet', default=False)
 
     episodes = models.ManyToManyField(

@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'sorl_cropping',
     'raven.contrib.django.raven_compat',
     'solo',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -138,6 +140,73 @@ SUMMERNOTE_CONFIG = {
     'js': ('/static/summernote-video-attributes.js', ),
     'css': ('/static/summernote-video-attributes.css', )
 }
+
+CKEDITOR_UPLOAD_PATH = 'ckeditor/'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar_Article': [
+            {
+                'name': 'styles',
+                'items': ['Styles', 'Format', 'FontSize', 'Source', '-', 'ShowBlocks', 'Maximize'],
+            },
+            '/',
+            {
+                'name': 'justify',
+                'items': ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            },
+            {
+                'name': 'basicstyles',
+                'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Blockquote', '-', 'RemoveFormat'],
+            },
+            {
+                'name': 'colors',
+                'items': ['TextColor', 'BGColor'],
+            },
+            {
+                'name': 'clipboard',
+                'items': ['Cut', 'Copy', 'SelectAll', '-', 'Undo', 'Redo'],
+            },
+            '/',
+            {
+                'name': 'paragraph',
+                'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+            },
+            {
+                'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {
+                'name': 'insert',
+                'items': ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'Iframe']
+            },
+            {'name': 'embedding', 'items': ['oembed', 'Iframe']}
+        ],
+        'toolbar': 'Article',
+        'height': 500,
+        'width': 1000,
+        # 'filebrowserWindowHeight': 725,
+        # 'filebrowserWindowWidth': 940,
+        # 'toolbarCanCollapse': True,
+        # 'forcePasteAsPlainText': True,
+        'font_names': 'Arial/Arial, Helvetica, sans-serif',
+        'font_defaultLabel': 'Arial',
+        'tabSpaces': 4,
+        'extraPlugins': ','.join([
+            'uploadimage', # the upload image feature
+            # your extra plugins here
+            'autolink',
+            'oembed',
+            # 'image2',
+            # 'devtools',
+            'widget',
+            'lineutils',
+            'clipboard',
+            'dialog',
+            'dialogui',
+            'elementspath'
+        ]),
+    }
+}
+
 
 THUMBNAIL_ENGINE = 'sorl_cropping.engine.CropEngine'
 
