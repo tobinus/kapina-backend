@@ -44,6 +44,13 @@ class PostAdmin(ImageCroppingMixin, SummernoteModelAdmin):
             form.base_fields['episodes'].queryset = show_episodes
         return form
 
+    # Set form field for "lead" to Textarea instead of Textinput
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        formfield = super(PostAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+        if db_field.name == 'lead':
+            formfield.widget = forms.Textarea(attrs={'cols': 60, 'rows': 5})
+        return formfield
+
 
 @admin.register(Category)
 class CategoryAdmin(SummernoteModelAdmin):
@@ -61,6 +68,13 @@ class ShowAdmin(SummernoteModelAdmin):
     list_filter = ('archived', )
     ordering = ('archived', 'name')
     search_fields = ('name', )
+
+    # Set form field for "lead" to Textarea instead of Textinput
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        formfield = super(ShowAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+        if db_field.name == 'lead':
+            formfield.widget = forms.Textarea(attrs={'cols': 40, 'rows': 3})
+        return formfield
 
 
 @admin.register(Episode)
