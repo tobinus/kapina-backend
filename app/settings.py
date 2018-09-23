@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'data_models',
     'graphene_django',
-    'django_summernote',
     'colorfield',
     'sorl.thumbnail',
     'sorl_cropping',
@@ -132,14 +131,6 @@ STATIC_ROOT = config("REVOLT_STATIC_ROOT", default=os.path.join(BASE_DIR, 'stati
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = config("REVOLT_MEDIA_ROOT", default=os.path.join(BASE_DIR, 'mediafiles'))
-
-SUMMERNOTE_CONFIG = {
-    'toolbar': [['style', ['bold', 'italic', 'underline', 'clear']], ['list', ['ul', 'ol']],
-                ['media', ['link', 'picture',
-                           'videoAttributes']], ['tools', ['redo', 'undo', 'fullscreen']]],
-    'js': ('/static/summernote-video-attributes.js', ),
-    'css': ('/static/summernote-video-attributes.css', )
-}
 
 CKEDITOR_UPLOAD_PATH = 'ckeditor'
 CKEDITOR_IMAGE_BACKEND = 'pillow'

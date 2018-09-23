@@ -1,8 +1,8 @@
 from django import forms
 from django.contrib import admin
-from django_summernote.admin import SummernoteModelAdmin
 from solo.admin import SingletonModelAdmin
 from sorl_cropping import ImageCroppingMixin
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 from .models import Category, Episode, Post, Settings, Show
 
@@ -31,11 +31,28 @@ class ArchivedShowFilter(ShowFilter):
     archived = True
 
 
+class PostAdminForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorUploadingWidget())
+    
+    class Meta:
+        model = Post
+        fields = '__all__'
+
+
+class SettingsAdminForm(forms.ModelForm):
+    about = forms.CharField(widget=CKEditorUploadingWidget())
+    
+    class Meta:
+        model = Settings
+        fields = '__all__'
+
+
 @admin.register(Post)
-class PostAdmin(ImageCroppingMixin, SummernoteModelAdmin):
+class PostAdmin(ImageCroppingMixin, admin.ModelAdmin):
     list_display = ('title', 'show', 'publish_at', 'deleted')
     list_filter = ('deleted', 'publish_at', 'show')
     search_fields = ('title', 'show__name')
+    form = PostAdminForm
 
     def get_form(self, request, obj, **kwargs):
         form = super().get_form(request, obj, **kwargs)
@@ -46,17 +63,17 @@ class PostAdmin(ImageCroppingMixin, SummernoteModelAdmin):
 
 
 @admin.register(Category)
-class CategoryAdmin(SummernoteModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(Settings)
-class SettingsAdmin(SummernoteModelAdmin, SingletonModelAdmin):
-    pass
+class SettingsAdmin(SingletonModelAdmin):
+    form = SettingsAdminForm
 
 
 @admin.register(Show)
-class ShowAdmin(SummernoteModelAdmin):
+class ShowAdmin(admin.ModelAdmin):
     list_display = ('name', 'archived')
     list_filter = ('archived', )
     ordering = ('archived', 'name')
