@@ -1,8 +1,8 @@
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
 from django.contrib import admin
 from solo.admin import SingletonModelAdmin
 from sorl_cropping import ImageCroppingMixin
-from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 from .models import Category, Episode, Post, Settings, Show
 
@@ -33,7 +33,7 @@ class ArchivedShowFilter(ShowFilter):
 
 class PostAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorUploadingWidget())
-    
+
     class Meta:
         model = Post
         fields = '__all__'
@@ -41,7 +41,7 @@ class PostAdminForm(forms.ModelForm):
 
 class SettingsAdminForm(forms.ModelForm):
     about = forms.CharField(widget=CKEditorUploadingWidget())
-    
+
     class Meta:
         model = Settings
         fields = '__all__'

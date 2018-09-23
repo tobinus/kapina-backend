@@ -199,6 +199,8 @@ CKEDITOR_CONFIGS = {
         ],
         'tabSpaces':
         4,
+        'contentsCss':
+        '/static/ckeditor/editor.css',
         'extraPlugins':
         ','.join([
             # your extra plugins here
