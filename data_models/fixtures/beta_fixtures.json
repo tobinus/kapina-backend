@@ -1,0 +1,1011 @@
+[
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can add Innstillinger",
+    "content_type": 7,
+    "codename": "add_settings"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can change Innstillinger",
+    "content_type": 7,
+    "codename": "change_settings"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can delete Innstillinger",
+    "content_type": 7,
+    "codename": "delete_settings"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can add Kategori",
+    "content_type": 8,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can change Kategori",
+    "content_type": 8,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can delete Kategori",
+    "content_type": 8,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add Episode",
+    "content_type": 9,
+    "codename": "add_episode"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change Episode",
+    "content_type": 9,
+    "codename": "change_episode"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete Episode",
+    "content_type": 9,
+    "codename": "delete_episode"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can add Artikkel",
+    "content_type": 10,
+    "codename": "add_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can change Artikkel",
+    "content_type": 10,
+    "codename": "change_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can delete Artikkel",
+    "content_type": 10,
+    "codename": "delete_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can add Program",
+    "content_type": 11,
+    "codename": "add_show"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can change Program",
+    "content_type": 11,
+    "codename": "change_show"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can delete Program",
+    "content_type": 11,
+    "codename": "delete_show"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can add attachment",
+    "content_type": 12,
+    "codename": "add_attachment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can change attachment",
+    "content_type": 12,
+    "codename": "change_attachment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can delete attachment",
+    "content_type": 12,
+    "codename": "delete_attachment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add kv store",
+    "content_type": 13,
+    "codename": "add_kvstore"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change kv store",
+    "content_type": 13,
+    "codename": "change_kvstore"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete kv store",
+    "content_type": 13,
+    "codename": "delete_kvstore"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$100000$8sYg6DXFSyDd$UglBf4QxvKOktT4HlmmCAyCcMyPzhK+8p+wu4QY/+24=",
+    "last_login": "2018-09-23T14:17:28.343Z",
+    "is_superuser": true,
+    "username": "kapina",
+    "first_name": "",
+    "last_name": "",
+    "email": "kapina@studentmediene.no",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2018-09-23T14:17:17.358Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9kei3g25fzameoz1y9zy6hmhw2a0uaml",
+  "fields": {
+    "session_data": "MWY1ZWUzYTVjMmNhNWNjNmU2OWU5YjM0OGM4NmZkMzIwYWE5YWViNzp7Il9hdXRoX3VzZXJfaGFzaCI6IjJkOGNjZjk5MGE5Y2I5MTA3OGMwOWQ3MzRiOWYyNDdkMzlmYWI3MTAiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+    "expire_date": "2018-10-07T14:17:28.367Z"
+  }
+},
+{
+  "model": "data_models.category",
+  "pk": 1,
+  "fields": {
+    "name": "Underholdning",
+    "text_color": "#000000",
+    "background_color": "#ECB61C"
+  }
+},
+{
+  "model": "data_models.category",
+  "pk": 2,
+  "fields": {
+    "name": "Kultur",
+    "text_color": "#FFFFFF",
+    "background_color": "#EC0000"
+  }
+},
+{
+  "model": "data_models.category",
+  "pk": 3,
+  "fields": {
+    "name": "Satire",
+    "text_color": "#000000",
+    "background_color": "#18EC49"
+  }
+},
+{
+  "model": "data_models.settings",
+  "pk": 1,
+  "fields": {
+    "about": "<p>Radio Revolt er en ikke-kommersiell studentdrevet radiokanal som gir deg det nyeste innen musikk, underholdning og studentnyheter fra Trondheim. Kanalen sender nytt innhold hver dag og sammarbeider ogs\u00e5 mye med studentavisa Under Dusken. Radio Revolts m\u00e5l er \u00e5 v\u00e6re et alternativt tilbud, ikke bare til studenter, men til alle som vil h\u00f8re radio laget av studenter. Vi har en utfordrende musikkprofil, med intervjuer av aktuelle artister og spilling av mange lokale band.</p><p><b>Historie</b></p><p>Studentradio'n i Trondheim ble stiftet 17. november 1984, men forl\u00f8perne til dagens Studentradio g\u00e5r mye lenger tilbake. Allerede i 1929 ble Akademisk Radioklubb (ARK) startet opp ved Studentersamfundet, og under UKA i 1933 ble det for f\u00f8rste gang eksperimentert med radiosendinger \u2013 kjent som UKEsenderen.</p><p>UKEsenderen ble raskt en tradisjon, og ble satt i drift ved hver UKE siden siden \u2013 kun med unntak av UKA77 og UKA79, da departementet nektet \u00e5 gi dispensasjon fra NRK-monopolet.</p><p>16. desember 1981 ble det vedtatt \u00e5 oppheve NRKs monopol p\u00e5 radiosendinger i Norge, og det ble blant annet \u00e5pnet for drift av n\u00e6rradiokanaler. Milj\u00f8et rundt UKEsenderen 81 \u00f8nsket umiddelbart \u00e5 s\u00f8ke om konsesjon, men p\u00e5 grunn av forsinkelser skulle det ta to \u00e5r f\u00f8r en konsesjonss\u00f8knad kom igjennom.</p><p>I 1984 fikk Studentersamfundet i Trondhjem konsesjon for drift av n\u00e6rradio, og de f\u00f8rste sendingene ble gjennomf\u00f8rt samme h\u00f8st i forbindelse med Studentersamfundets Internet Teaters (SIT) oppf\u00f8ring av stykket \u201dBare plastikk\u201d. En av ildsjelene i forarbeidet var Lars Steinar Hanssen, og han ble utnevnt til redakt\u00f8r 1. september. Imidlertid var det enn\u00e5 ikke bestemt om Samfundet skulle fortsette \u00e5 satse p\u00e5 radiosendinger. 17. november bestemte Storsalen at R\u00e5det skulle \u201dutarbeide midlertidige statutter for n\u00e6rradiodrift, samt oppnevne en gruppe som kan st\u00e5 for pr\u00f8vedrift\u201d. I f\u00f8rste omgang tok man sikte p\u00e5 en seksm\u00e5neders pr\u00f8veperiode, men Finansstyret vedtok \u00e5 utvide denne til \u00e5 gjelde ut 1985.<br></p><p>I 1985 sendte Studentradion 3 dager i uken, fra samme studio som UKEsenderen. Redaksjonen bestod av \u00e5tte faste medlemmer, og en del l\u00f8sere tilknyttede medarbeidere. Samfundets Forsterkerkomit\u00e9 stilte med teknisk ekspertise. Akademsik RadioKlubb (ARK) var ikke lenger involvert, fordi sendingene gikk via Televerkets sender p\u00e5 Tyholt. V\u00e5ren 1985 ble det f\u00f8rste semesteret med sammenhengende sendinger fra Studentradion i Trondheim.</p><p>De neste fem \u00e5rene ble Studentradions eksistens diskutert gjentatte ganger i Storsalen, f\u00f8r man i 1988 besluttet at Studentersamfundet i Trondhjem, i samarbeid med Studentsamskipnaden i Trondheim, skulle opprette selskapet Mediastud AS. I dette selskapet skulle Samfundet og Samskipnaden eie 50% hver, en deling som fortsatt st\u00e5r uforandret. Mediastud fikk ogs\u00e5 ansvaret for studentavisen Under Dusken. Samme \u00e5r fikk Studentradion ogs\u00e5 nytt studio i toppen av Studentersamfundet, et prosjekt som hovedsakelig var finansiert av samskipnaden.</p><p>I 2009 endret studentradioen navn til Radio Revolt og flytter inn i nye lokaler med nytt studio, igjen finansiert av SiT. Vi fikk opprinnelig konsesjon for 24-timers sendinger p\u00e5 FM, men mistet denne samme \u00e5r etter mye strid. Etter dette ble sendetiden stadig redusert, og vi ble endelig tatt av FM i 2014.</p><p>I 2013 endret Mediastud AS navn til Studentmediene i Trondheim AS, som i dag er eid av Studentersamfundet og Studentsamskipnaden i Trondheim (SiT) i fellesskap, og gjengene Radio Revolt, Under Dusken og Student-TV ble sl\u00e5tt sammen. Samme \u00e5r ble ogs\u00e5 dusken.no lansert, som en felles nettside for medieinnholdet fra Studentmediene.</p><p>Mellom vi ble tatt av FM i 2014 og mars 2015 sendte vi kun p\u00e5 nett. I 2015 ble lokal-DAB-nettet i S\u00f8r-Tr\u00f8ndelag lansert, og Radio Revolt var blant den f\u00f8rste gruppen lokalkanaler som fikk konsesjon til sending p\u00e5 DAB.</p>"
+  }
+},
+{
+  "model": "data_models.show",
+  "pk": 1,
+  "fields": {
+    "name": "Hoppende Hagenisser",
+    "slug": "hoppende-hagenisser",
+    "image": "uploads/images/RR.png",
+    "lead": "Radiorevolts hagenisser har laget eget program! Hos oss f\u00e5r du spennende nissestreker hver dag.",
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum turpis et malesuada ullamcorper. Proin vitae lorem et tellus accumsan tincidunt. Ut aliquet urna in dui bibendum, sed hendrerit arcu consequat. Vivamus pulvinar justo mattis erat fringilla, a cursus lorem finibus. </p><p>Praesent dictum tincidunt ante, ut congue dui pretium eget. Duis in blandit velit, eget egestas risus. Duis sit amet finibus arcu. Duis scelerisque felis quis elit dapibus, a iaculis nisi iaculis. Pellentesque risus ipsum, euismod ac aliquam nec, ultrices sit amet ipsum. Vivamus bibendum lorem a neque consectetur tincidunt. Vivamus consequat, leo quis facilisis commodo, neque nisi vulputate leo, nec varius libero mi sit amet nunc. Sed nec eros pulvinar dolor facilisis imperdiet. Curabitur at nunc vitae ex finibus bibendum. Quisque vitae sapien ac odio malesuada bibendum id eget leo. Mauris in rhoncus metus, vitae pharetra nunc.</p><p><br></p>",
+    "archived": false,
+    "created_at": "2018-09-23T14:32:31.650Z",
+    "updated_at": "2018-09-23T14:33:36.865Z",
+    "created_by": 1,
+    "categories": [
+      1
+    ]
+  }
+},
+{
+  "model": "data_models.show",
+  "pk": 2,
+  "fields": {
+    "name": "Kj\u00f8kkenbanden",
+    "slug": "kj\u00f8kkenbanden",
+    "image": "uploads/images/RR_IEpmAGD.png",
+    "lead": "Kj\u00f8kkenbanden gir deg de beste tipsene til et vellykket kj\u00f8kken.",
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum turpis et malesuada ullamcorper. Proin vitae lorem et tellus accumsan tincidunt. Ut aliquet urna in dui bibendum, sed hendrerit arcu consequat. Vivamus pulvinar justo mattis erat fringilla, a cursus lorem finibus. </p><p>Praesent dictum tincidunt ante, ut congue dui pretium eget. Duis in blandit velit, eget egestas risus. Duis sit amet finibus arcu.&nbsp;</p><p><br></p>",
+    "archived": false,
+    "created_at": "2018-09-23T14:34:37.860Z",
+    "updated_at": "2018-09-23T14:34:37.860Z",
+    "created_by": 1,
+    "categories": [
+      1
+    ]
+  }
+},
+{
+  "model": "data_models.show",
+  "pk": 3,
+  "fields": {
+    "name": "Calculus",
+    "slug": "calculus",
+    "image": "uploads/images/RR_FMptdEL.png",
+    "lead": "Calculus er kilden til alt godt i livet. Bli med p\u00e5 v\u00e5rt eventyr i denne matteverdenen.",
+    "content": "<p>Maecenas dignissim purus non nulla vehicula tincidunt. In aliquam tellus tincidunt, molestie tellus eget, gravida purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam dignissim tellus magna, nec fringilla lacus volutpat non. Nunc sed aliquet tortor. Vivamus vestibulum lacinia felis, non condimentum quam. </p><p>Vivamus sagittis rhoncus lacus a vehicula. Integer id sapien magna. Vestibulum nec erat finibus, tincidunt risus et, convallis mi. Suspendisse venenatis turpis sit amet dui lobortis tincidunt. Donec dapibus ultricies ex, eget vehicula felis facilisis et.</p>",
+    "archived": false,
+    "created_at": "2018-09-23T14:37:28.110Z",
+    "updated_at": "2018-09-23T14:37:28.110Z",
+    "created_by": 1,
+    "categories": [
+      2
+    ]
+  }
+},
+{
+  "model": "data_models.episode",
+  "pk": 1,
+  "fields": {
+    "title": "Calculus 1",
+    "use_title": true,
+    "lead": "Calculus begynner dypdykket inn i Calculus' verden. Spenn dere fast for en opplevelsesrik reise.",
+    "show": 3,
+    "publish_at": "2018-09-23T14:47:52Z",
+    "created_at": "2018-09-23T14:49:37.899Z",
+    "created_by": 1,
+    "updated_at": "2018-09-23T14:49:37.899Z",
+    "on_demand_url": "https://filer.radiorevolt.no/ondemand/RR-SEKSE_4261FAFBB5E6471B97732CA76B58CBEB.MP3",
+    "categories": [
+      2
+    ]
+  }
+},
+{
+  "model": "data_models.episode",
+  "pk": 2,
+  "fields": {
+    "title": "Calculus 2",
+    "use_title": true,
+    "lead": "Suspendisse luctus blandit enim eu tincidunt. Sed gravida nisi non ante lobortis, auctor aliquam ipsum tempus.",
+    "show": 3,
+    "publish_at": "2018-09-23T14:51:53Z",
+    "created_at": "2018-09-23T14:53:31.356Z",
+    "created_by": 1,
+    "updated_at": "2018-09-23T14:53:31.356Z",
+    "on_demand_url": "https://filer.radiorevolt.no/ondemand/RR-SEKSE_A0AB0C0A35CB42E9B075BE8AF2B5C1E2.MP3",
+    "categories": [
+      2
+    ]
+  }
+},
+{
+  "model": "data_models.episode",
+  "pk": 3,
+  "fields": {
+    "title": "Matte 4",
+    "use_title": false,
+    "lead": "Matematikk 4 er det siste innslaget i en quadrologi av mattefag p\u00e5 NTNU. Vi gir deg tips til hvordan man kommer seg gjennom eksamen.",
+    "show": 3,
+    "publish_at": "2018-09-23T14:53:37Z",
+    "created_at": "2018-09-23T14:54:36.280Z",
+    "created_by": 1,
+    "updated_at": "2018-09-23T14:54:36.280Z",
+    "on_demand_url": "https://filer.radiorevolt.no/ondemand/RR-SEKSE_F568DD8E791340DF9D618C5613F6E848.MP3",
+    "categories": [
+      2
+    ]
+  }
+},
+{
+  "model": "data_models.post",
+  "pk": 1,
+  "fields": {
+    "title": "Hvordan man lager artikler",
+    "slug": "hvordan-man-lager-artikler",
+    "image": "uploads/images/jorde.jpg",
+    "cropping": "0,0,1024,512",
+    "lead": "Det finnes et virrvarr av ulike m\u00e5ter \u00e5 skrive artikler p\u00e5. Vi presenterer hvordan vi gj\u00f8r det her p\u00e5 RadioRevolt",
+    "content": "<p><img src=\"/media/django-summernote/2018-09-23/d0b35b68-ae63-4532-814c-bcd101990f90.png\" style=\"width: 100%;\"><br></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mattis ultrices arcu, sit amet porta neque varius eu. Pellentesque auctor urna magna, et imperdiet ante eleifend vitae. Cras ut mi blandit, sagittis nulla at, commodo urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur eget mauris sodales, imperdiet ante quis, consequat ligula. Vivamus laoreet blandit facilisis. Mauris ut porttitor neque. Suspendisse luctus blandit enim eu tincidunt. Sed gravida nisi non ante lobortis, auctor aliquam ipsum tempus. Sed pharetra, justo nec accumsan ultricies, eros ex viverra ex, ut volutpat nulla purus ac nulla. In vestibulum dolor quis felis ullamcorper facilisis. Sed ac erat quis eros tincidunt sodales.</p><p>Mauris quis fringilla lorem, eu consequat metus. Aenean maximus feugiat convallis. Mauris elementum nisl eget mi viverra, non convallis sem rutrum. Proin vestibulum enim a metus mollis, a imperdiet arcu bibendum. Pellentesque eleifend accumsan nisi id mattis. Nullam ac leo est. Aliquam vitae ullamcorper ligula. Vivamus facilisis porttitor neque, viverra mollis lectus vulputate et. Donec leo ligula, efficitur ac tortor id, tempor ultricies diam. Nam sit amet maximus ipsum. Mauris lacinia est quis odio dictum, vitae ornare urna congue. Pellentesque consequat vitae nibh non pulvinar. Nunc tincidunt erat diam, id facilisis sapien iaculis sed. Praesent faucibus, neque sed pellentesque rutrum, tellus mauris dignissim ligula, ut porta neque felis quis dui.</p><p><br></p><div class=\"embed-responsive embed-responsive-16by9\" style=\"float: left;\"><iframe frameborder=\"0\" src=\"//www.youtube.com/embed/u1g7oNGw-Xs?&amp;loop=0\" width=\"auto\" height=\"auto\" class=\"embed-responsive note-video-clip\"></iframe></div><p><br></p><p>Proin sodales vitae arcu non tincidunt. Nunc sodales tempus ante vel porta. Donec sapien massa, dapibus ac dignissim et, bibendum nec sem. Proin eu metus sit amet purus fermentum sollicitudin sit amet vel nisi. Ut euismod quis est in sodales. Quisque velit erat, mollis fringilla diam quis, sagittis rutrum lorem. Donec et imperdiet nisi, ut porta sem. Duis ut sodales elit. Vivamus in dignissim nibh. Curabitur ultricies laoreet lectus quis rutrum. Suspendisse semper magna at congue fermentum. Cras ac felis a erat elementum elementum. Mauris nec est id dolor egestas iaculis. In nec rutrum mi, quis convallis elit. Morbi mollis sit amet mauris at volutpat. Donec eu turpis tincidunt, elementum libero et, consectetur orci.</p><p>Etiam ut scelerisque ex, ac varius velit. Pellentesque dignissim est a venenatis feugiat. Pellentesque sed orci nec dolor scelerisque ultrices vehicula ut justo. Donec cursus in libero eget eleifend. In mattis libero id magna pretium, et pretium eros euismod. Praesent tristique euismod cursus. Praesent sit amet varius tortor. Praesent id semper eros. Aenean maximus nulla a ipsum ullamcorper, id blandit quam finibus. Maecenas elementum accumsan suscipit. Ut venenatis lorem in scelerisque euismod. Aenean sagittis enim sagittis imperdiet fringilla.</p><p>Phasellus vel ultricies felis. Mauris risus elit, fringilla non consequat sit amet, accumsan et tellus. Nunc eleifend, ex at suscipit eleifend, ante leo tristique enim, non fermentum ex lacus in urna. Mauris volutpat bibendum orci, sit amet finibus neque elementum eget. Integer id nunc commodo, posuere neque eu, pretium tortor. Proin convallis turpis sit amet elit eleifend, quis dictum enim congue. Sed felis justo, finibus in magna porta, efficitur lacinia purus. Aenean lobortis, mi vitae interdum dapibus, nunc ipsum tristique nisi, eget rutrum velit eros id urna. Maecenas dapibus nulla euismod sapien sollicitudin, eu consequat dolor feugiat. Fusce sed blandit orci. Donec id nulla ut velit euismod efficitur. Maecenas cursus elit odio, ac finibus mauris tincidunt sed. Nulla diam tortor, venenatis vitae imperdiet sit amet, auctor eget lacus.</p>",
+    "deleted": false,
+    "show": 3,
+    "publish_at": "2018-09-23T14:38:41Z",
+    "created_at": "2018-09-23T14:43:11.373Z",
+    "updated_at": "2018-09-23T14:54:53.770Z",
+    "created_by": 1,
+    "episodes": [
+      3,
+      2
+    ],
+    "categories": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "data_models.post",
+  "pk": 2,
+  "fields": {
+    "title": "List of German television series",
+    "slug": "list-of-german-television-series",
+    "image": "uploads/images/pexels-photo-1436129.jpeg",
+    "cropping": "0,160,1920,1120",
+    "lead": "Vi gir deg en komplett liste over tyske TV-serier.",
+    "content": "<p style=\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mattis ultrices arcu, sit amet porta neque varius eu. Pellentesque auctor urna magna, et imperdiet ante eleifend vitae. Cras ut mi blandit, sagittis nulla at, commodo urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur eget mauris sodales, imperdiet ante quis, consequat ligula. Vivamus laoreet blandit facilisis. Mauris ut porttitor neque. Suspendisse luctus blandit enim eu tincidunt. Sed gravida nisi non ante lobortis, auctor aliquam ipsum tempus. Sed pharetra, justo nec accumsan ultricies, eros ex viverra ex, ut volutpat nulla purus ac nulla. In vestibulum dolor quis felis ullamcorper facilisis. Sed ac erat quis eros tincidunt sodales.</p><p style=\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\"><br></p><div class=\"embed-responsive embed-responsive-16by9\" style=\"float: none;\"><iframe frameborder=\"0\" src=\"//www.youtube.com/embed/_v_ZAtc06Jk?&amp;loop=0\" width=\"auto\" height=\"auto\" class=\"embed-responsive note-video-clip\"></iframe></div><p style=\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\"><br></p><p style=\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\">Mauris quis fringilla lorem, eu consequat metus. Aenean maximus feugiat convallis. Mauris elementum nisl eget mi viverra, non convallis sem rutrum. Proin vestibulum enim a metus mollis, a imperdiet arcu bibendum. Pellentesque eleifend accumsan nisi id mattis. Nullam ac leo est. Aliquam vitae ullamcorper ligula. Vivamus facilisis porttitor neque, viverra mollis lectus vulputate et. Donec leo ligula, efficitur ac tortor id, tempor ultricies diam. Nam sit amet maximus ipsum. Mauris lacinia est quis odio dictum, vitae ornare urna congue. Pellentesque consequat vitae nibh non pulvinar. Nunc tincidunt erat diam, id facilisis sapien iaculis sed. Praesent faucibus, neque sed pellentesque rutrum, tellus mauris dignissim ligula, ut porta neque felis quis dui.</p><p style=\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\">Proin sodales vitae arcu non tincidunt. Nunc sodales tempus ante vel porta. Donec sapien massa, dapibus ac dignissim et, bibendum nec sem. Proin eu metus sit amet purus fermentum sollicitudin sit amet vel nisi. Ut euismod quis est in sodales. Quisque velit erat, mollis fringilla diam quis, sagittis rutrum lorem. Donec et imperdiet nisi, ut porta sem. Duis ut sodales elit. Vivamus in dignissim nibh. Curabitur ultricies laoreet lectus quis rutrum. Suspendisse semper magna at congue fermentum. Cras ac felis a erat elementum elementum. Mauris nec est id dolor egestas iaculis. In nec rutrum mi, quis convallis elit. Morbi mollis sit amet mauris at volutpat. Donec eu turpis tincidunt, elementum libero et, consectetur orci.</p><div class=\"embed-responsive embed-responsive-16by9\" style=\"float: none;\"><iframe frameborder=\"0\" src=\"//www.youtube.com/embed/_v_ZAtc06Jk?&amp;loop=0\" width=\"auto\" height=\"auto\" class=\"embed-responsive note-video-clip\"></iframe></div><p style=\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\"><br></p><p style=\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\">Etiam ut scelerisque ex, ac varius velit. Pellentesque dignissim est a venenatis feugiat. Pellentesque sed orci nec dolor scelerisque ultrices vehicula ut justo. Donec cursus in libero eget eleifend. In mattis libero id magna pretium, et pretium eros euismod. Praesent tristique euismod cursus. Praesent sit amet varius tortor. Praesent id semper eros. Aenean maximus nulla a ipsum ullamcorper, id blandit quam finibus. Maecenas elementum accumsan suscipit. Ut venenatis lorem in scelerisque euismod. Aenean sagittis enim sagittis imperdiet fringilla.</p><p style=\"margin-bottom: 15px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\">Phasellus vel ultricies felis. Mauris risus elit, fringilla non consequat sit amet, accumsan et tellus. Nunc eleifend, ex at suscipit eleifend, ante leo tristique enim, non fermentum ex lacus in urna. Mauris volutpat bibendum orci, sit amet finibus neque elementum eget. Integer id nunc commodo, posuere neque eu, pretium tortor. Proin convallis turpis sit amet elit eleifend, quis dictum enim congue. Sed felis justo, finibus in magna porta, efficitur lacinia purus. Aenean lobortis, mi vitae interdum dapibus, nunc ipsum tristique nisi, eget rutrum velit eros id urna. Maecenas dapibus nulla euismod sapien sollicitudin, eu consequat dolor feugiat. Fusce sed blandit orci. Donec id nulla ut velit euismod efficitur. Maecenas cursus elit odio, ac finibus mauris tincidunt sed. Nulla diam tortor, venenatis vitae imperdiet sit amet, auctor eget lacus.</p>",
+    "deleted": false,
+    "show": 3,
+    "publish_at": "2018-09-23T14:47:09Z",
+    "created_at": "2018-09-23T14:47:30.631Z",
+    "updated_at": "2018-09-23T14:55:06.797Z",
+    "created_by": 1,
+    "episodes": [
+      1
+    ],
+    "categories": [
+      3
+    ]
+  }
+},
+{
+  "model": "data_models.post",
+  "pk": 3,
+  "fields": {
+    "title": "Hvordan f\u00e5 tysk aksent?",
+    "slug": "hvordan-f\u00e5-tysk-aksent",
+    "image": "uploads/images/pexels-photo-1081228.jpeg",
+    "cropping": "",
+    "lead": "Tysk aksent er noe f\u00e5 mestrer. Bli med oss p\u00e5 reisen.",
+    "content": "<p>Spicy jalapeno bacon ipsum dolor amet bresaola boudin corned beef cupim pork belly tenderloin shankle pork loin chicken jerky tri-tip porchetta prosciutto. Kevin bacon t-bone, capicola shankle chuck meatloaf jerky corned beef ribeye. Capicola shankle sirloin, drumstick rump sausage pastrami leberkas kielbasa cupim. Turducken strip steak ribeye, meatloaf burgdoggen tail venison leberkas pig. Pig burgdoggen capicola chuck.</p><p><br></p><p><img src=\"/media/django-summernote/2018-09-23/c078ee56-fa03-49d4-93c2-58f06a95fe9f.jpeg\" style=\"width: 100%;\"><br></p><p>Boudin filet mignon ground round frankfurter tail. Chuck landjaeger spare ribs pork strip steak pork chop meatball prosciutto short ribs flank corned beef pig bresaola tongue fatback. Ribeye shank tri-tip, hamburger pork shankle swine pork belly beef porchetta sausage. Buffalo brisket swine porchetta shankle ham hock doner tri-tip strip steak jerky pig landjaeger chuck sausage. Buffalo sirloin shoulder pork kevin strip steak. Boudin kielbasa ham hock jerky cow, leberkas drumstick shank pig ground round.</p><p><img src=\"/media/django-summernote/2018-09-23/4a8a7d35-a647-493f-a040-9158e4590267.jpeg\" style=\"width: 100%;\">Corned beef jowl beef ribs, meatball ham hock pancetta spare ribs chuck rump. Boudin pig porchetta sirloin. Boudin fatback kielbasa hamburger frankfurter tri-tip, ham pork loin jerky t-bone prosciutto drumstick. Tongue shank burgdoggen, chuck flank picanha drumstick fatback beef corned beef ground round pig. Short loin jowl capicola, chicken kevin spare ribs flank jerky. Pork belly flank meatloaf tri-tip, porchetta ham hock corned beef filet mignon. Beef ribs tri-tip beef andouille picanha jerky.</p><p>Kevin swine bresaola, prosciutto jowl pig pork belly tail cupim flank doner ham. Leberkas pig kevin beef. Sausage alcatra swine frankfurter meatloaf doner pig buffalo capicola ham prosciutto shank tenderloin bacon. Chicken t-bone capicola, <a href=\"http://example.com\" target=\"_blank\">burgdoggen</a> ball tip turducken kielbasa ham meatball beef alcatra. Pastrami buffalo chicken spare ribs.</p><ul><li>Abc</li><li>Def</li><li>Ghi</li></ul><p>Swine pork jowl andouille leberkas, short ribs ground round shank. Frankfurter leberkas ball tip turkey swine. Ham hock swine corned beef drumstick fatback hamburger alcatra pork loin. Turducken andouille ribeye pastrami, flank pork loin buffalo hamburger spare ribs cupim beef ribs alcatra picanha. Strip steak fatback t-bone shoulder porchetta, bacon beef ribs hamburger shankle ribeye spare ribs alcatra pork loin biltong. Brisket andouille bresaola corned beef short loin buffalo swine.</p>",
+    "deleted": false,
+    "show": 3,
+    "publish_at": "2018-09-23T14:55:10Z",
+    "created_at": "2018-09-23T14:57:57.559Z",
+    "updated_at": "2018-09-23T14:57:57.559Z",
+    "created_by": 1,
+    "episodes": [
+      2
+    ],
+    "categories": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "django_summernote.attachment",
+  "pk": 1,
+  "fields": {
+    "name": "artist.png",
+    "file": "django-summernote/2018-09-23/d0b35b68-ae63-4532-814c-bcd101990f90.png",
+    "uploaded": "2018-09-23T14:41:45.090Z"
+  }
+},
+{
+  "model": "django_summernote.attachment",
+  "pk": 2,
+  "fields": {
+    "name": "pexels-photo-1081228.jpeg",
+    "file": "django-summernote/2018-09-23/4a8a7d35-a647-493f-a040-9158e4590267.jpeg",
+    "uploaded": "2018-09-23T14:56:59.321Z"
+  }
+},
+{
+  "model": "django_summernote.attachment",
+  "pk": 3,
+  "fields": {
+    "name": "pexels-photo-1436129.jpeg",
+    "file": "django-summernote/2018-09-23/c078ee56-fa03-49d4-93c2-58f06a95fe9f.jpeg",
+    "uploaded": "2018-09-23T14:57:12.219Z"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||0d96938f98f6015f9d95b7bb5b2e42f4",
+  "fields": {
+    "value": "{\"size\": [300, 150], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/e4/a7/e4a70c5aec55a749c12024ba89fab981.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||15576f2499f5d5e812a40468d8073227",
+  "fields": {
+    "value": "{\"size\": [1920, 1179], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"uploads/images/pexels-photo-1081228.jpeg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||2241677867d104879b6c3fb355b54bc1",
+  "fields": {
+    "value": "{\"size\": [1920, 1280], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"uploads/images/pexels-photo-1436129.jpeg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||2bd31a2614393723cc228f750c95a277",
+  "fields": {
+    "value": "{\"size\": [1024, 512], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/92/ee/92ee92f2d75502d37fc772a80b02cf7a.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||39426f75185939842152a00ff502fd29",
+  "fields": {
+    "value": "{\"size\": [1024, 512], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/fc/c8/fcc81aa3bc6e0519c2c325442395d683.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||460cce7da3d5d742e75a395bfcc9d69e",
+  "fields": {
+    "value": "{\"size\": [1024, 512], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/19/dd/19dd5ef561145da2a5a8b202d9cee9f7.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||53046c0843b86947b06079f7ef99f98d",
+  "fields": {
+    "value": "{\"size\": [768, 384], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/ac/e7/ace7f5691c7a3e405aee31630bb21fad.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||54727e4d6607c964cfb7a3759e0c7b70",
+  "fields": {
+    "value": "{\"size\": [300, 150], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/c0/18/c018de87d3fb67726d386b7d60f7ecbb.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||6afc583098d3db9f6061a64a089e38bf",
+  "fields": {
+    "value": "{\"size\": [768, 384], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/f2/32/f232452b2072d14695e4e9ab11200919.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||724808fb3734a83a8257eaf6890d3682",
+  "fields": {
+    "value": "{\"size\": [300, 150], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/ac/46/ac46c7f7034c9f4b9fa4800e119d71af.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||784e7664e2267de9c1bbd227f65c123f",
+  "fields": {
+    "value": "{\"size\": [300, 150], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/18/15/1815c9b7243aaf809b2a405fec6974bd.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||7ec9f6b47f00b9a6e01909554010176d",
+  "fields": {
+    "value": "{\"size\": [300, 200], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/ca/66/ca669f060576e515f1dd1d495a973085.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||82e7785ea923a85ee60443510e89fdc9",
+  "fields": {
+    "value": "{\"size\": [1024, 512], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/19/c4/19c419098ed4e4e385788588931f2e4f.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||a2dd9a9f5ffb10a8935d3361a1b7e05e",
+  "fields": {
+    "value": "{\"size\": [768, 384], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/23/d1/23d11d51ee98be43e0a973213c2d7534.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||a3169b9e9f469ba55b6992f2824b76f7",
+  "fields": {
+    "value": "{\"size\": [300, 150], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/c5/eb/c5ebace7b6e256ab32e31a4dd0ba7884.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||ac3345a6f75bf1d621f1aa90321b452e",
+  "fields": {
+    "value": "{\"size\": [1024, 512], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"uploads/images/jorde.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||f298fec30829a844ea5422f3f3f3dfc2",
+  "fields": {
+    "value": "{\"size\": [768, 384], \"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/89/c4/89c4dafd559061d722f342baba010d45.jpg\"}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||thumbnails||15576f2499f5d5e812a40468d8073227",
+  "fields": {
+    "value": "[\"53046c0843b86947b06079f7ef99f98d\", \"2bd31a2614393723cc228f750c95a277\", \"724808fb3734a83a8257eaf6890d3682\"]"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||thumbnails||2241677867d104879b6c3fb355b54bc1",
+  "fields": {
+    "value": "[\"460cce7da3d5d742e75a395bfcc9d69e\", \"784e7664e2267de9c1bbd227f65c123f\", \"a2dd9a9f5ffb10a8935d3361a1b7e05e\", \"7ec9f6b47f00b9a6e01909554010176d\"]"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||thumbnails||ac3345a6f75bf1d621f1aa90321b452e",
+  "fields": {
+    "value": "[\"a3169b9e9f469ba55b6992f2824b76f7\", \"82e7785ea923a85ee60443510e89fdc9\", \"6afc583098d3db9f6061a64a089e38bf\", \"39426f75185939842152a00ff502fd29\", \"f298fec30829a844ea5422f3f3f3dfc2\", \"0d96938f98f6015f9d95b7bb5b2e42f4\"]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2018-09-23T14:32:31.729Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "Hoppende Hagenisser",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2018-09-23T14:32:47.006Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "underholdning",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2018-09-23T14:32:53.941Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Underholdning",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2018-09-23T14:32:59.280Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Kultur",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2018-09-23T14:33:10.985Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Satire",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2018-09-23T14:33:19.541Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Kultur",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"text_color\", \"background_color\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2018-09-23T14:33:36.890Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "Hoppende Hagenisser",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"categories\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2018-09-23T14:34:37.869Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "2",
+    "object_repr": "Kj\u00f8kkenbanden",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2018-09-23T14:35:49.155Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Innstillinger for Radio Revolt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"about\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2018-09-23T14:37:28.120Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "3",
+    "object_repr": "Calculus",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2018-09-23T14:43:11.431Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Hvordan man lager artikler",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2018-09-23T14:47:30.646Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "List of German television series",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2018-09-23T14:47:46.449Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "List of German television series",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"cropping\", \"show\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2018-09-23T14:49:37.956Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Calculus 1",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2018-09-23T14:53:31.365Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Calculus 2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2018-09-23T14:54:36.289Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Matte 4",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2018-09-23T14:54:53.802Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Hvordan man lager artikler",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"cropping\", \"episodes\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2018-09-23T14:55:06.812Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "List of German television series",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"episodes\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2018-09-23T14:57:57.576Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Hvordan f\u00e5 tysk aksent?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+}
+]
