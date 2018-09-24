@@ -177,7 +177,7 @@ def test_paginated_posts(client, snapshot):
             hasPrev,
             hasNext,
             pages,
-            objects {
+            posts {
                 id,
                 title,
                 slug,
