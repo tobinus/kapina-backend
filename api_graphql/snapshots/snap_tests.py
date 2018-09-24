@@ -154,7 +154,8 @@ snapshots['test_paginated_posts 1'] = {
         'paginatedPosts': {
             'hasNext': True,
             'hasPrev': False,
-            'objects': [
+            'pages': 2,
+            'posts': [
                 {
                     'categories': [
                         {
@@ -295,8 +296,7 @@ snapshots['test_paginated_posts 1'] = {
                     'slug': 'den-10th-artikkelen',
                     'title': 'Den tiende artikkelen'
                 }
-            ],
-            'pages': 2
+            ]
         }
     }
 }

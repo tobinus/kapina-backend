@@ -17,5 +17,5 @@ def get_paginator(qs, page_size, page, paginated_type, **kwargs):
         pages=p.num_pages,
         has_next=page_obj.has_next(),
         has_prev=page_obj.has_previous(),
-        objects=page_obj.object_list,
+        posts=page_obj.object_list,
         **kwargs)
