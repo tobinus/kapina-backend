@@ -2,6 +2,7 @@ import graphene
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+from api_graphql.utils import get_paginator
 from data_models.crop import CropImages
 from data_models.models import Category, Episode, Post, Settings, Show
 
@@ -65,6 +66,14 @@ class PostType(graphene.ObjectType):
     @staticmethod
     def resolve_cropped_images(post, info):
         return CropImages(post.image, post.cropping)
+
+
+class PostPaginatedType(graphene.ObjectType):
+    page = graphene.Int()
+    pages = graphene.Int()
+    has_next = graphene.Boolean()
+    has_prev = graphene.Boolean()
+    posts = graphene.List(PostType)
 
 
 class ShowType(graphene.ObjectType):
@@ -210,7 +219,7 @@ class Query(graphene.ObjectType):
 
     all_posts = graphene.List(PostType)
 
-    front_page_posts = graphene.List(PostType)
+    paginated_posts = graphene.Field(PostPaginatedType, page=graphene.Int())
 
     user = graphene.Field(UserType, id=graphene.Int())
 
@@ -265,16 +274,18 @@ class Query(graphene.ObjectType):
         return Post.objects.order_by('-created_at')
 
     @staticmethod
-    def resolve_front_page_posts(root, info):
-        return Post.objects.order_by('-created_at')[:30]
-
-    @staticmethod
     def resolve_all_users(root, info):
         return User.objects.all()
 
     @staticmethod
     def resolve_user(root, info, id):
         return User.objects.get(pk=id)
+
+    @staticmethod
+    def resolve_paginated_posts(self, info, page):
+        page_size = 10
+        qs = Post.objects.order_by('-created_at')
+        return get_paginator(qs, page_size, page, PostPaginatedType)
 
 
 schema = graphene.Schema(query=Query)
