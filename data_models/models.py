@@ -158,6 +158,13 @@ class Post(models.Model):
     categories = models.ManyToManyField(Category, blank=True, verbose_name='Kategorier')
 
     publish_at = models.DateTimeField('Publisert', default=datetime.now)
+
+    ready_to_be_published = models.BooleanField(
+        'Klar til publisering',
+        default=False,
+        help_text='Artikkelen vil aldri bli publisert før denne er huket av. ' +
+        'Dette er uavhengig av hvilket publiseringstidspunkt som er satt ovenfor. ')
+
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
     created_by = models.ForeignKey(
