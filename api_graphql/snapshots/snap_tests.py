@@ -152,24 +152,10 @@ snapshots['test_url_all_shows 1'] = b'{"data":{"allShows":[{"id":1},{"id":2}]}}'
 snapshots['test_paginated_posts 1'] = {
     'data': {
         'paginatedPosts': {
-            'hasNext': True,
+            'hasNext': False,
             'hasPrev': False,
-            'pages': 2,
+            'pages': 1,
             'posts': [
-                {
-                    'categories': [
-                        {
-                            'backgroundColor': '#ECB61C',
-                            'name': 'Radio',
-                            'textColor': '#000000'
-                        }
-                    ],
-                    'id': 2,
-                    'lead': 'Enda en ingress',
-                    'publishAt': '2018-02-23 21:30:30+00:00',
-                    'slug': 'den-andre-artikkelen',
-                    'title': 'Den andre artikkelen'
-                },
                 {
                     'categories': [
                         {
@@ -206,95 +192,11 @@ snapshots['test_paginated_posts 1'] = {
                             'textColor': '#000000'
                         }
                     ],
-                    'id': 4,
-                    'lead': 'Ingressen her',
-                    'publishAt': '2018-02-23 21:28:29+00:00',
-                    'slug': 'den-4th-artikkelen',
-                    'title': 'Den fjerde artikkelen'
-                },
-                {
-                    'categories': [
-                        {
-                            'backgroundColor': '#ECB61C',
-                            'name': 'Radio',
-                            'textColor': '#000000'
-                        }
-                    ],
-                    'id': 5,
-                    'lead': 'Ingressen her',
-                    'publishAt': '2018-02-23 21:27:29+00:00',
-                    'slug': 'den-5th-artikkelen',
-                    'title': 'Den femte artikkelen'
-                },
-                {
-                    'categories': [
-                        {
-                            'backgroundColor': '#ECB61C',
-                            'name': 'Radio',
-                            'textColor': '#000000'
-                        }
-                    ],
-                    'id': 6,
-                    'lead': 'Ingressen her',
-                    'publishAt': '2018-02-23 21:26:29+00:00',
-                    'slug': 'den-6th-artikkelen',
-                    'title': 'Den sjette artikkelen'
-                },
-                {
-                    'categories': [
-                        {
-                            'backgroundColor': '#ECB61C',
-                            'name': 'Radio',
-                            'textColor': '#000000'
-                        }
-                    ],
                     'id': 7,
                     'lead': 'Ingressen her',
                     'publishAt': '2018-02-23 21:25:29+00:00',
                     'slug': 'den-7th-artikkelen',
                     'title': 'Den syvende artikkelen'
-                },
-                {
-                    'categories': [
-                        {
-                            'backgroundColor': '#ECB61C',
-                            'name': 'Radio',
-                            'textColor': '#000000'
-                        }
-                    ],
-                    'id': 8,
-                    'lead': 'Ingressen her',
-                    'publishAt': '2018-02-23 21:24:29+00:00',
-                    'slug': 'den-8th-artikkelen',
-                    'title': 'Den attende artikkelen'
-                },
-                {
-                    'categories': [
-                        {
-                            'backgroundColor': '#ECB61C',
-                            'name': 'Radio',
-                            'textColor': '#000000'
-                        }
-                    ],
-                    'id': 9,
-                    'lead': 'Ingressen her',
-                    'publishAt': '2018-02-23 21:23:29+00:00',
-                    'slug': 'den-9th-artikkelen',
-                    'title': 'Den niende artikkelen'
-                },
-                {
-                    'categories': [
-                        {
-                            'backgroundColor': '#ECB61C',
-                            'name': 'Radio',
-                            'textColor': '#000000'
-                        }
-                    ],
-                    'id': 10,
-                    'lead': 'Ingressen her',
-                    'publishAt': '2018-02-23 21:22:29+00:00',
-                    'slug': 'den-10th-artikkelen',
-                    'title': 'Den tiende artikkelen'
                 }
             ]
         }
