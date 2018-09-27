@@ -10,10 +10,11 @@ def django_db_setup(django_db_setup, django_db_blocker):
     with django_db_blocker.unblock():
         call_command('loaddata', 'test_fixtures.json')
 
+
 @pytest.mark.django_db
 def test_frontpage(snapshot):
     client = Client(schema)
-     executed = client.execute('''query {
+    executed = client.execute('''query {
         frontPagePosts {
             id,
             title,
@@ -32,7 +33,8 @@ def test_frontpage(snapshot):
             }
         }
     }''')
-     snapshot.assert_match(executed)
+    snapshot.assert_match(executed)
+
 
 @pytest.mark.django_db
 def test_post_by_slug(snapshot):
