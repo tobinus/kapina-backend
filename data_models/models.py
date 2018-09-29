@@ -29,6 +29,9 @@ class Settings(SingletonModel):
     class Meta:
         verbose_name = 'Innstillinger'
 
+    chief_editor = models.CharField('Ansvarlig redaktør', default="", max_length=128)
+    radio_editor = models.CharField('Radioredaktør', default="", max_length=128)
+
     about = models.TextField('Om Radio Revolt')
 
     def __unicode__(self):
