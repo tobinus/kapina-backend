@@ -12,6 +12,31 @@ def django_db_setup(django_db_setup, django_db_blocker):
 
 
 @pytest.mark.django_db
+def test_frontpage(snapshot):
+    client = Client(schema)
+    executed = client.execute('''query {
+        frontPagePosts {
+            id,
+            title,
+            slug,
+            croppedImages {
+                large,
+                medium,
+                small
+            },
+            lead,
+            publishAt,
+            categories {
+                name,
+                textColor,
+                backgroundColor
+            }
+        }
+    }''')
+    snapshot.assert_match(executed)
+
+
+@pytest.mark.django_db
 def test_post_by_slug(snapshot):
     client = Client(schema)
     executed = client.execute('''query {

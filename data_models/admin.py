@@ -49,7 +49,7 @@ class SettingsAdminForm(forms.ModelForm):
 
 @admin.register(Post)
 class PostAdmin(ImageCroppingMixin, admin.ModelAdmin):
-    list_display = ('title', 'show', 'publish_at', 'deleted')
+    list_display = ('title', 'show', 'publish_at', 'ready_to_be_published', 'deleted')
     list_filter = ('deleted', 'publish_at', 'show')
     search_fields = ('title', 'show__name')
     form = PostAdminForm
