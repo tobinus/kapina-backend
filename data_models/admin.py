@@ -40,7 +40,8 @@ class PostAdminForm(forms.ModelForm):
 
 
 class SettingsAdminForm(forms.ModelForm):
-    about = forms.CharField(widget=CKEditorUploadingWidget())
+    about = forms.CharField(widget=CKEditorUploadingWidget(), label='Om Radio Revolt')
+    privacy_policy = forms.CharField(widget=CKEditorUploadingWidget(), label='Personvernerklæring')
 
     class Meta:
         model = Settings

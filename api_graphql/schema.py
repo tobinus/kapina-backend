@@ -24,6 +24,7 @@ class SettingsType(graphene.ObjectType):
     about = graphene.String()
     chief_editor = graphene.String()
     radio_editor = graphene.String()
+    privacy_policy = graphene.String()
 
 
 class PostType(graphene.ObjectType):
