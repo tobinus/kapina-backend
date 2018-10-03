@@ -74,7 +74,10 @@ def test_settings(snapshot):
 
     executed = client.execute('''query {
         settings {
+            chief_editor,
             about,
+            radio_editor,
+            privacy_policy,
         }
     }''')
 
