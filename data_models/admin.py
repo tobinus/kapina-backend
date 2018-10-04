@@ -32,7 +32,12 @@ class ArchivedShowFilter(ShowFilter):
 
 
 class PostAdminForm(forms.ModelForm):
-    content = forms.CharField(widget=CKEditorUploadingWidget())
+    content = forms.CharField(
+        widget=CKEditorUploadingWidget(),
+        label='Brødtekst',
+        help_text='Legge til Spotify-spilleliste? Sjekk ut guiden ' +
+        '<a href="https://confluence.smint.no/pages/viewpage.action?pageId=36111759"' +
+        'target="_blank">her</a>.')
 
     class Meta:
         model = Post
@@ -40,7 +45,8 @@ class PostAdminForm(forms.ModelForm):
 
 
 class SettingsAdminForm(forms.ModelForm):
-    about = forms.CharField(widget=CKEditorUploadingWidget())
+    about = forms.CharField(widget=CKEditorUploadingWidget(), label='Om Radio Revolt')
+    privacy_policy = forms.CharField(widget=CKEditorUploadingWidget(), label='Personvernerklæring')
 
     class Meta:
         model = Settings

@@ -37,11 +37,35 @@ snapshots['test_post_by_slug 1'] = {
 }
 
 snapshots['test_settings 1'] = {
-    'data': {
-        'settings': {
-            'about': '<p>About text</p>'
+    'errors': [
+        {
+            'locations': [
+                {
+                    'column': 13,
+                    'line': 3
+                }
+            ],
+            'message': 'Cannot query field "chief_editor" on type "SettingsType". Did you mean "chiefEditor"?'
+        },
+        {
+            'locations': [
+                {
+                    'column': 13,
+                    'line': 5
+                }
+            ],
+            'message': 'Cannot query field "radio_editor" on type "SettingsType". Did you mean "radioEditor" or "chiefEditor"?'
+        },
+        {
+            'locations': [
+                {
+                    'column': 13,
+                    'line': 6
+                }
+            ],
+            'message': 'Cannot query field "privacy_policy" on type "SettingsType". Did you mean "privacyPolicy"?'
         }
-    }
+    ]
 }
 
 snapshots['test_episode_by_id 1'] = {

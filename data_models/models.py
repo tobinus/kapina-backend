@@ -34,6 +34,8 @@ class Settings(SingletonModel):
 
     about = models.TextField('Om Radio Revolt')
 
+    privacy_policy = models.TextField('Personvernerklæring', default="")
+
     def __unicode__(self):
         return 'Innstillinger for Radio Revolt'
 
