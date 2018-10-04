@@ -2,7 +2,7 @@ from datetime import datetime
 
 from colorfield.fields import ColorField
 from django.contrib.auth.models import User
-from django.db import IntegrityError, models
+from django.db import models
 from django.utils.crypto import get_random_string
 from django.utils.text import slugify
 from solo.models import SingletonModel
@@ -49,7 +49,7 @@ class Show(models.Model):
         verbose_name_plural = "Programmer"
 
     name = models.CharField('Navn', max_length=64, unique=True)
-    slug = models.CharField(max_length=64, unique=True)
+    slug = models.CharField(max_length=64, unique=True, editable=False)
     image = models.ImageField('Programlogo', upload_to='uploads/images')
     lead = models.CharField('Kort beskrivelse', max_length=140)
     content = models.TextField('Lang beskrivelse')
@@ -66,13 +66,14 @@ class Show(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             slug = slugify(self.name, allow_unicode=True)
-            try:
-                self.slug = slug
-            except IntegrityError:
+            if Show.objects.filter(slug=slug).exists():
                 self.slug = '{slug}-{random_string}'.format(
                     slug=slug, random_string=get_random_string(length=7))
-
-        super(Show, self).save(*args, **kwargs)
+                super(Show, self).save(*args, **kwargs)
+            else:
+                super(Show, self).save(*args, **kwargs)
+        else:
+            super(Show, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.name
@@ -178,13 +179,14 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             slug = slugify(self.title, allow_unicode=True)
-            try:
-                self.slug = slug
-            except IntegrityError:
+            if Post.objects.filter(slug=slug).exists():
                 self.slug = '{slug}-{random_string}'.format(
                     slug=slug, random_string=get_random_string(length=7))
-
-        super(Post, self).save(*args, **kwargs)
+                super(Post, self).save(*args, **kwargs)
+            else:
+                super(Post, self).save(*args, **kwargs)
+        else:
+            super(Post, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.title
