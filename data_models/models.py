@@ -65,14 +65,14 @@ class Show(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            slug = slugify(self.name, allow_unicode=True)
-            if Show.objects.filter(slug=slug).exists():
+            # New object is being created.
+            self.slug = slugify(self.name, allow_unicode=True)
+            if Show.objects.filter(slug=self.slug).exists():
                 self.slug = '{slug}-{random_string}'.format(
-                    slug=slug, random_string=get_random_string(length=7))
-                super(Show, self).save(*args, **kwargs)
-            else:
-                super(Show, self).save(*args, **kwargs)
+                    slug=self.slug, random_string=get_random_string(length=3))
+            super(Show, self).save(*args, **kwargs)
         else:
+            # The object already exists in DB.
             super(Show, self).save(*args, **kwargs)
 
     def __unicode__(self):
@@ -178,14 +178,14 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            slug = slugify(self.title, allow_unicode=True)
-            if Post.objects.filter(slug=slug).exists():
+            # New object is being created.
+            self.slug = slugify(self.title, allow_unicode=True)
+            if Post.objects.filter(slug=self.slug).exists():
                 self.slug = '{slug}-{random_string}'.format(
-                    slug=slug, random_string=get_random_string(length=7))
-                super(Post, self).save(*args, **kwargs)
-            else:
-                super(Post, self).save(*args, **kwargs)
+                    slug=self.slug, random_string=get_random_string(length=3))
+            super(Post, self).save(*args, **kwargs)
         else:
+            # The object already exists in DB.
             super(Post, self).save(*args, **kwargs)
 
     def __unicode__(self):
