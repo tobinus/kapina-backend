@@ -291,13 +291,11 @@ class Query(graphene.ObjectType):
         return User.objects.get(pk=id)
 
     @staticmethod
-    def resolve_paginated_posts(self, info, page):
-        page_size = 10
+    def resolve_paginated_posts(self, info, page, page_size=10):
         qs = Post.objects \
             .order_by('-publish_at') \
             .filter(publish_at__lte=timezone.now()) \
             .filter(ready_to_be_published=True)
         return get_paginator(qs, page_size, page, PostPaginatedType)
-
 
 schema = graphene.Schema(query=Query)
