@@ -298,4 +298,5 @@ class Query(graphene.ObjectType):
             .filter(ready_to_be_published=True)
         return get_paginator(qs, page_size, page, PostPaginatedType)
 
+
 schema = graphene.Schema(query=Query)
