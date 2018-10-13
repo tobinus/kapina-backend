@@ -222,7 +222,8 @@ class Query(graphene.ObjectType):
 
     all_posts = graphene.List(PostType)
 
-    paginated_posts = graphene.Field(PostPaginatedType, page=graphene.Int(), page_size=graphene.Int())
+    paginated_posts = graphene.Field(
+        PostPaginatedType, page=graphene.Int(), page_size=graphene.Int())
 
     front_page_posts = graphene.List(PostType)
 
