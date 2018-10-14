@@ -222,7 +222,8 @@ class Query(graphene.ObjectType):
 
     all_posts = graphene.List(PostType)
 
-    paginated_posts = graphene.Field(PostPaginatedType, page=graphene.Int())
+    paginated_posts = graphene.Field(
+        PostPaginatedType, page=graphene.Int(), page_size=graphene.Int())
 
     front_page_posts = graphene.List(PostType)
 
@@ -291,8 +292,7 @@ class Query(graphene.ObjectType):
         return User.objects.get(pk=id)
 
     @staticmethod
-    def resolve_paginated_posts(self, info, page):
-        page_size = 10
+    def resolve_paginated_posts(self, info, page, page_size=10):
         qs = Post.objects \
             .order_by('-publish_at') \
             .filter(publish_at__lte=timezone.now()) \
