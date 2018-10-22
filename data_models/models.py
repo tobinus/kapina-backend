@@ -3,8 +3,7 @@ from datetime import datetime
 from colorfield.fields import ColorField
 from django.contrib.auth.models import User
 from django.db import models
-from django.utils.crypto import get_random_string
-from django.utils.text import slugify
+from django_extensions.db.fields import AutoSlugField
 from solo.models import SingletonModel
 from sorl_cropping import ImageRatioField
 
@@ -49,7 +48,7 @@ class Show(models.Model):
         verbose_name_plural = "Programmer"
 
     name = models.CharField('Navn', max_length=64, unique=True)
-    slug = models.CharField(max_length=64, unique=True, editable=False)
+    slug = AutoSlugField(populate_from=['name'])
     image = models.ImageField('Programlogo', upload_to='uploads/images')
     lead = models.CharField('Kort beskrivelse', max_length=140)
     content = models.TextField('Lang beskrivelse')
@@ -62,18 +61,6 @@ class Show(models.Model):
     updated_at = models.DateTimeField(auto_now=True, editable=False)
     created_by = models.ForeignKey(
         User, on_delete=models.PROTECT, null=True, verbose_name='Opprettet av')
-
-    def save(self, *args, **kwargs):
-        if not self.id:
-            # New object is being created.
-            self.slug = slugify(self.name, allow_unicode=True)
-            if Show.objects.filter(slug=self.slug).exists():
-                self.slug = '{slug}-{random_string}'.format(
-                    slug=self.slug, random_string=get_random_string(length=3))
-            super(Show, self).save(*args, **kwargs)
-        else:
-            # The object already exists in DB.
-            super(Show, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.name
@@ -123,7 +110,6 @@ class Episode(models.Model):
         return str(self.__unicode__())
 
     def get_absolute_url(self):
-        # TODO: Update with episode link when we add support for this
         return '/programmer/' + self.show.slug
 
 
@@ -134,7 +120,7 @@ class Post(models.Model):
         ordering = ['-publish_at']
 
     title = models.CharField('Tittel', max_length=64)
-    slug = models.CharField(max_length=64, unique=True, editable=False)
+    slug = AutoSlugField(populate_from=['title'])
     image = models.ImageField('Bilde', upload_to='uploads/images')
     cropping = ImageRatioField(
         'image',
@@ -175,18 +161,6 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True, editable=False)
     created_by = models.ForeignKey(
         User, on_delete=models.PROTECT, related_name='publications', verbose_name='Opprettet av')
-
-    def save(self, *args, **kwargs):
-        if not self.id:
-            # New object is being created.
-            self.slug = slugify(self.title, allow_unicode=True)
-            if Post.objects.filter(slug=self.slug).exists():
-                self.slug = '{slug}-{random_string}'.format(
-                    slug=self.slug, random_string=get_random_string(length=3))
-            super(Post, self).save(*args, **kwargs)
-        else:
-            # The object already exists in DB.
-            super(Post, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.title
