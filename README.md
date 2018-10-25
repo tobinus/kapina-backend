@@ -22,22 +22,10 @@ By default settings are configured for development and should just work, but som
 
 ## Setup - Development
 
-### Virtualenv
-
+Run the following command:
 ```bash
-pip install virtualenv
-virtualenv -p python3 venv
-. venv/bin/activate
+. scripts/setup-dev.sh
 ```
-
-### Install requirements
-
-```bash
-pip install -r requirements.txt
-sudo apt-get install libpq-dev python3-dev
-pip install psycopg2
-```
-
 ### Change settings
 
 The default settings provided should work fine for development, but if any changes are needed a tool like [direnv](https://direnv.net/) is recommended for handling environment variables. 
