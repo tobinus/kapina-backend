@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # This resets the current environment to a fresh database state,
 # with all new dependency and static files collected. 
 # The script has been tested on Ubuntu 18.04
