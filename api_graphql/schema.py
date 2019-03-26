@@ -1,7 +1,8 @@
 import graphene
 from django.contrib.auth.models import User
 
-from api_graphql.utils import get_offset, get_paginator, get_public_episodes, get_public_posts
+from api_graphql.utils import (get_offset, get_paginator, get_public_episodes, get_public_posts,
+                               strip_html_tags)
 from data_models.crop import CropImages
 from data_models.models import Category, Episode, HighlightedPost, Post, Settings, Show
 
@@ -122,7 +123,7 @@ class EpisodeType(graphene.ObjectType):
 
     id = graphene.Int()
     title = graphene.String()
-    lead = graphene.String()
+    lead = graphene.Field(graphene.String, strip_html=graphene.Boolean())
     digas_broadcast_id = graphene.Int()
     digas_show_id = graphene.Int()
     categories = graphene.List(lambda: CategoryType)
@@ -143,6 +144,13 @@ class EpisodeType(graphene.ObjectType):
             return episode.title
         else:
             return '{} {}'.format(episode.show.name, episode.created_at.strftime('%d.%m.%Y'))
+
+    @staticmethod
+    def resolve_lead(episode, info, strip_html=True):
+        lead = episode.lead
+        if strip_html:
+            lead = strip_html_tags(lead)
+        return lead
 
     @staticmethod
     def resolve_created_by(episode, info):

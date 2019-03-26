@@ -1,10 +1,23 @@
+from html.parser import HTMLParser
+
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.utils import timezone
 
+
+class HTMLStripper(HTMLParser):
+    def __init__(self, *args, **kwargs):
+        super(HTMLStripper, self).__init__(*args, **kwargs)
+        self.data = []
+
+    def handle_data(self, d):
+        self.data.append(d)
+
+    def get_data(self):
+        return ''.join(self.data)
+
+
 # A little helper function, becase we will potentially have many PaginatedTypes
 # and we will potentially want to turn many querysets into paginated results:
-
-
 # DEPRECATED
 def get_paginator(qs, page_size, page, paginated_type, **kwargs):
     p = Paginator(qs, page_size)
@@ -41,3 +54,10 @@ def get_public_episodes(episodes):
     return episodes \
         .order_by('-publish_at') \
         .filter(publish_at__lte=timezone.now())
+
+
+def strip_html_tags(html):
+    parser = HTMLStripper()
+    parser.feed(html)
+    parser.close()
+    return parser.get_data()
