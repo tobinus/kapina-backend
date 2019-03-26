@@ -63,7 +63,8 @@ class ShowAdminForm(forms.ModelForm):
 
 
 class EpisodeAdminForm(forms.ModelForm):
-    lead = forms.CharField(widget=CKEditorUploadingWidget(config_name='small'), label='Beskrivelse')
+    # lead = forms.CharField(
+    #   widget=CKEditorUploadingWidget(config_name='small'), label='Beskrivelse')
 
     class Meta:
         model = Episode
